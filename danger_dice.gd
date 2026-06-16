@@ -17,9 +17,9 @@ func _ready() -> void:
 	# Buttons on options page
 	$Options/HBoxContainer/VBoxContainerLeft/ReturnButton.pressed.connect(_on_options_return_button_pressed)
 	# Buttons on accessibility page
-	$Accessibility/VBoxContainer/MenuButton.pressed.connect(_on_return_to_menu_button_pressed)
+	$Accessibility/VBoxContainer/ReturnButton.pressed.connect(_on_return_to_menu_button_pressed)
 	# Buttons on credits page
-	$Credits/VBoxContainer/MenuButton.pressed.connect(_on_return_to_menu_button_pressed)
+	$Credits/VBoxContainer/ReturnButton.pressed.connect(_on_return_to_menu_button_pressed)
 	# Buttons on how to play page
 	$HowToPlay/VBoxContainer/ReturnButton.pressed.connect(_on_how_to_play_return_button_pressed)
 
