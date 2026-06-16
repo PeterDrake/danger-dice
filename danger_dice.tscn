@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bs0cosyf75vj2"]
 
+[ext_resource type="PackedScene" uid="uid://b3585mdgse1bl" path="res://title_page.tscn" id="1_eudhu"]
 [ext_resource type="PackedScene" uid="uid://1wmo25bs8bnb" path="res://play.tscn" id="1_t44fg"]
 [ext_resource type="PackedScene" uid="uid://buk3j8sn48smg" path="res://options.tscn" id="2_n5ffe"]
 [ext_resource type="PackedScene" uid="uid://dj35lbpkmm4s4" path="res://accessibility.tscn" id="3_eudhu"]
+[ext_resource type="PackedScene" uid="uid://g22eivmy1umc" path="res://how_to_play.tscn" id="3_ytlbn"]
 [ext_resource type="PackedScene" uid="uid://by3yom2t6ybll" path="res://credits.tscn" id="4_ytlbn"]
 
 [node name="DangerDice" type="Control" unique_id=1195856445]
@@ -13,14 +15,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TitlePage" parent="." unique_id=2084414339 instance=ExtResource("1_eudhu")]
+layout_mode = 1
+
 [node name="Play" parent="." unique_id=535170605 instance=ExtResource("1_t44fg")]
+visible = false
+layout_mode = 1
+
+[node name="HowToPlay" parent="." unique_id=2082202645 instance=ExtResource("3_ytlbn")]
+visible = false
 layout_mode = 1
 
 [node name="Options" parent="." unique_id=314918461 instance=ExtResource("2_n5ffe")]
+visible = false
 layout_mode = 1
 
 [node name="Accessibility" parent="." unique_id=157868656 instance=ExtResource("3_eudhu")]
+visible = false
 layout_mode = 1
 
 [node name="Credits" parent="." unique_id=98161517 instance=ExtResource("4_ytlbn")]
+visible = false
 layout_mode = 1

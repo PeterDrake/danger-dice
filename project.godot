@@ -16,6 +16,7 @@ general/updates_per_second=100
 [application]
 
 config/name="danger-dice"
+run/main_scene="uid://bs0cosyf75vj2"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
