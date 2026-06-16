@@ -43,7 +43,16 @@ focus_next = NodePath("../ReturnButton")
 focus_previous = NodePath("../PageTitle")
 focus_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+text = "Danger Dice is a dice placement game. You will be placing dice into a grid of hexagons. Each die face represents a different danger, like a shark or quicksand. You can choose what the dangers are on the Options page.
+
+One die is rolled and placed in the center hex at the beginning of the game. After that, you will repeatedly roll three dice and place them onto empty hexes.
+
+If you ever place a die next to another die showing the same face, you die! Your score is how many dice you place before this happens.
+
+If you fill up the entire grid, you win!
+
+Mouse controls: Click on a rolled die, then click on an empty hex to place it.
+Keyboard controls: Navigate within the grid using Q, W, E, A, S, and D to move in six directions. Press 1, 2, or 3 to select a rolled die, then press space to place it. Press backspace to undo a die placement. After you've place all three dice, press enter to roll the next set of dice."
 autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1218253312]

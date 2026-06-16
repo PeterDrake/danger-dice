@@ -43,7 +43,11 @@ focus_next = NodePath("../ReturnButton")
 focus_previous = NodePath("../PageTitle")
 focus_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+text = "Accessibility is a priority in the development of this game. It should be usable with mouse or keyboard, and by users who are Deaf, colorblind, low vision, or blind and using a screenreader. There is no time pressure or flashing lights.
+
+On the Options page, you can choose which six dangers will come up on the dice. If spiders are a deal breaker for you, how about a wolf or a chainsaw instead?
+
+If you find this game particularly accessible, or if something doesn't work for you, please let us know on the itch.io page."
 autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1639100988]
