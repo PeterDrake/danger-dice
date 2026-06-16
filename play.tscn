@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://1wmo25bs8bnb"]
 
+[ext_resource type="Texture2D" uid="uid://btrk56ng0urst" path="res://PlaceholderAssets/Grid.png" id="1_wnt6v"]
+[ext_resource type="Texture2D" uid="uid://ldcyys1qye2x" path="res://PlaceholderAssets/Tray.png" id="2_yuxfv"]
+
 [node name="Play" type="Control" unique_id=535170605]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +10,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=756504160]
+layout_mode = 1
+offset_right = 256.0
+offset_bottom = 256.0
+
+[node name="HowToPlayButton" type="Button" parent="VBoxContainer" unique_id=2083055709]
+layout_mode = 2
+size_flags_vertical = 6
+accessibility_name = "How to play"
+theme_override_font_sizes/font_size = 36
+text = "How to Play"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1365590406]
+layout_mode = 2
+size_flags_vertical = 6
+accessibility_name = "Options"
+theme_override_font_sizes/font_size = 36
+text = "Options"
+
+[node name="QuitToMenuButton" type="Button" parent="VBoxContainer" unique_id=719741258]
+layout_mode = 2
+size_flags_vertical = 6
+accessibility_name = "Quit to menu"
+theme_override_font_sizes/font_size = 36
+text = "Quit to Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=774608128]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+offset_right = 256.0
+
+[node name="UndoButton" type="Button" parent="VBoxContainer2" unique_id=1738649695]
+layout_mode = 2
+size_flags_vertical = 2
+accessibility_name = "Undo"
+theme_override_font_sizes/font_size = 36
+text = "Undo"
+
+[node name="RollDiceButton" type="Button" parent="VBoxContainer2" unique_id=2081423111]
+layout_mode = 2
+size_flags_vertical = 2
+accessibility_name = "Roll dice"
+theme_override_font_sizes/font_size = 36
+text = "Roll Dice"
+
+[node name="GridPlaceholder" type="Sprite2D" parent="." unique_id=1426070831]
+position = Vector2(604, 324.00003)
+scale = Vector2(4.8125005, 4.8125005)
+texture = ExtResource("1_wnt6v")
+
+[node name="TrayPlaceholder" type="Sprite2D" parent="." unique_id=1587562529]
+position = Vector2(1196, 208.00002)
+scale = Vector2(3.8125, 3)
+texture = ExtResource("2_yuxfv")
