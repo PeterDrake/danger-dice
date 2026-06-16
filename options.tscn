@@ -43,7 +43,6 @@ focus_neighbor_right = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/Vol
 focus_neighbor_bottom = NodePath("../HBoxContainer")
 focus_next = NodePath("../HBoxContainer")
 focus_previous = NodePath("../ChooseDangerLabel")
-accessibility_name = "Default dangers"
 accessibility_description = "Sets the possible dangers to (list defaults)"
 theme_override_font_sizes/font_size = 24
 text = "Default Dangers
