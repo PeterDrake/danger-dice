@@ -18,6 +18,13 @@ grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1963338866]
 layout_mode = 2
+focus_neighbor_left = NodePath("../HBoxContainer/VBoxContainerRight/QuitButton")
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainerRight/QuitButton")
+focus_neighbor_right = NodePath("../HBoxContainer/VBoxContainerLeft/PlayButton")
+focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainerLeft/PlayButton")
+focus_next = NodePath("../HBoxContainer/VBoxContainerLeft/PlayButton")
+focus_previous = NodePath("../HBoxContainer/VBoxContainerRight/QuitButton")
+focus_mode = 3
 theme_override_font_sizes/font_size = 72
 text = "Danger Dice"
 horizontal_alignment = 1
@@ -26,52 +33,88 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer Left" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1184359249]
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1184359249]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Left" unique_id=1269694679]
+[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft" unique_id=1269694679]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../VBoxContainerRight/AccessibilityButton")
+focus_neighbor_top = NodePath("../../../TitleLabel")
+focus_neighbor_right = NodePath("../../VBoxContainerRight/AccessibilityButton")
+focus_neighbor_bottom = NodePath("../HowToPlayButton")
+focus_next = NodePath("../HowToPlayButton")
+focus_previous = NodePath("../../../TitleLabel")
 theme_override_font_sizes/font_size = 48
 text = "Play"
 
-[node name="HowToPlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Left" unique_id=1640645317]
+[node name="HowToPlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft" unique_id=1640645317]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../VBoxContainerRight/CreditsButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../../VBoxContainerRight/CreditsButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../PlayButton")
 theme_override_font_sizes/font_size = 48
 text = "How to Play	"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Left" unique_id=695224933]
+[node name="OptionsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft" unique_id=695224933]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../VBoxContainerRight/QuitButton")
+focus_neighbor_top = NodePath("../HowToPlayButton")
+focus_neighbor_right = NodePath("../../VBoxContainerRight/QuitButton")
+focus_neighbor_bottom = NodePath("../../VBoxContainerRight/AccessibilityButton")
+focus_next = NodePath("../../VBoxContainerRight/AccessibilityButton")
+focus_previous = NodePath("../HowToPlayButton")
 theme_override_font_sizes/font_size = 48
 text = "Options"
 
-[node name="VBoxContainer Right" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=4519712]
+[node name="VBoxContainerRight" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=4519712]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="AccessibilityButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Right" unique_id=883169416]
+[node name="AccessibilityButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight" unique_id=883169416]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../VBoxContainerLeft/PlayButton")
+focus_neighbor_top = NodePath("../../VBoxContainerLeft/OptionsButton")
+focus_neighbor_right = NodePath("../../VBoxContainerLeft/PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../../VBoxContainerLeft/OptionsButton")
 theme_override_font_sizes/font_size = 48
 text = "Accessibility"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Right" unique_id=473429950]
+[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight" unique_id=473429950]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../VBoxContainerLeft/HowToPlayButton")
+focus_neighbor_top = NodePath("../AccessibilityButton")
+focus_neighbor_right = NodePath("../../VBoxContainerLeft/HowToPlayButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../AccessibilityButton")
 theme_override_font_sizes/font_size = 48
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Right" unique_id=1478008875]
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight" unique_id=1478008875]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../VBoxContainerLeft/OptionsButton")
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_right = NodePath("../../VBoxContainerLeft/OptionsButton")
+focus_neighbor_bottom = NodePath("../../../TitleLabel")
+focus_next = NodePath("../../../TitleLabel")
+focus_previous = NodePath("../CreditsButton")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
