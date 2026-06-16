@@ -16,41 +16,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=1526935599]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainerVolume" type="VBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=133954821]
-layout_mode = 2
-size_flags_vertical = 2
-
-[node name="VolumeLabel" type="Label" parent="HBoxContainer/VBoxContainerLeft/VBoxContainerVolume" unique_id=463195605]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
-text = "Volume"
-
-[node name="VolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerLeft/VBoxContainerVolume" unique_id=892049569]
-layout_mode = 2
-size_flags_vertical = 6
-max_value = 10.0
-value = 5.0
-
-[node name="ReturnButton" type="Button" parent="HBoxContainer/VBoxContainerLeft" unique_id=166376118]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 24
-text = "Return
-"
-
 [node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer" unique_id=2123353333]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ChooseDangerLabel" type="Label" parent="HBoxContainer/VBoxContainerRight" unique_id=40657493]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeLabel")
+focus_neighbor_top = NodePath("../../VBoxContainerLeft/ReturnButton")
+focus_neighbor_right = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeLabel")
+focus_neighbor_bottom = NodePath("../DefaultDangerButton")
+focus_next = NodePath("../DefaultDangerButton")
+focus_previous = NodePath("../../VBoxContainerLeft/ReturnButton")
 theme_override_font_sizes/font_size = 32
 text = "Choose exactly six dangers"
 horizontal_alignment = 1
@@ -59,6 +36,14 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeSlider")
+focus_neighbor_top = NodePath("../ChooseDangerLabel")
+focus_neighbor_right = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeSlider")
+focus_neighbor_bottom = NodePath("../HBoxContainer")
+focus_next = NodePath("../HBoxContainer")
+focus_previous = NodePath("../ChooseDangerLabel")
+accessibility_name = "Default dangers"
+accessibility_description = "Sets the possible dangers to (list defaults)"
 theme_override_font_sizes/font_size = 24
 text = "Default Dangers
 "
@@ -146,3 +131,32 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 text = "Wolf"
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=1526935599]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainerVolume" type="VBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=133954821]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="VolumeLabel" type="Label" parent="HBoxContainer/VBoxContainerLeft/VBoxContainerVolume" unique_id=463195605]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerLeft/VBoxContainerVolume" unique_id=892049569]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 10.0
+value = 5.0
+
+[node name="ReturnButton" type="Button" parent="HBoxContainer/VBoxContainerLeft" unique_id=166376118]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 24
+text = "Return
+"
