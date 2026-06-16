@@ -19,6 +19,12 @@ offset_bottom = 256.0
 [node name="HowToPlayButton" type="Button" parent="VBoxContainer" unique_id=2083055709]
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../Tray")
+focus_neighbor_top = NodePath("../../VBoxContainer2/RollDiceButton")
+focus_neighbor_right = NodePath("../../Grid")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../../Tray")
 accessibility_name = "How to play"
 theme_override_font_sizes/font_size = 36
 text = "How to Play"
@@ -26,6 +32,12 @@ text = "How to Play"
 [node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1365590406]
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../Tray")
+focus_neighbor_top = NodePath("../HowToPlayButton")
+focus_neighbor_right = NodePath("../../Grid")
+focus_neighbor_bottom = NodePath("../QuitToMenuButton")
+focus_next = NodePath("../QuitToMenuButton")
+focus_previous = NodePath("../HowToPlayButton")
 accessibility_name = "Options"
 theme_override_font_sizes/font_size = 36
 text = "Options"
@@ -33,6 +45,12 @@ text = "Options"
 [node name="QuitToMenuButton" type="Button" parent="VBoxContainer" unique_id=719741258]
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../Tray")
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_right = NodePath("../../Grid")
+focus_neighbor_bottom = NodePath("../../VBoxContainer2/UndoButton")
+focus_next = NodePath("../../VBoxContainer2/UndoButton")
+focus_previous = NodePath("../OptionsButton")
 accessibility_name = "Quit to menu"
 theme_override_font_sizes/font_size = 36
 text = "Quit to Menu"
@@ -48,6 +66,12 @@ offset_right = 256.0
 [node name="UndoButton" type="Button" parent="VBoxContainer2" unique_id=1738649695]
 layout_mode = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../Tray")
+focus_neighbor_top = NodePath("../../VBoxContainer/QuitToMenuButton")
+focus_neighbor_right = NodePath("../../Grid")
+focus_neighbor_bottom = NodePath("../RollDiceButton")
+focus_next = NodePath("../RollDiceButton")
+focus_previous = NodePath("../../VBoxContainer/QuitToMenuButton")
 accessibility_name = "Undo"
 theme_override_font_sizes/font_size = 36
 text = "Undo"
@@ -55,16 +79,56 @@ text = "Undo"
 [node name="RollDiceButton" type="Button" parent="VBoxContainer2" unique_id=2081423111]
 layout_mode = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../Tray")
+focus_neighbor_top = NodePath("../UndoButton")
+focus_neighbor_right = NodePath("../../Grid")
+focus_neighbor_bottom = NodePath("../../VBoxContainer/HowToPlayButton")
+focus_next = NodePath("../../Grid")
+focus_previous = NodePath("../UndoButton")
 accessibility_name = "Roll dice"
 theme_override_font_sizes/font_size = 36
 text = "Roll Dice"
 
-[node name="GridPlaceholder" type="Sprite2D" parent="." unique_id=1426070831]
-position = Vector2(604, 324.00003)
+[node name="Grid" type="Control" parent="." unique_id=927965869]
+layout_mode = 1
+anchor_left = 0.25694445
+anchor_top = 0.024691358
+anchor_right = 0.79194444
+anchor_bottom = 0.9755803
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_top = NodePath("../VBoxContainer2/RollDiceButton")
+focus_neighbor_right = NodePath("../Tray")
+focus_neighbor_bottom = NodePath("../Tray")
+focus_next = NodePath("../Tray")
+focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
+focus_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridPlaceholder" type="Sprite2D" parent="Grid" unique_id=1426070831]
+position = Vector2(308, 308.00003)
 scale = Vector2(4.8125005, 4.8125005)
 texture = ExtResource("1_wnt6v")
 
-[node name="TrayPlaceholder" type="Sprite2D" parent="." unique_id=1587562529]
-position = Vector2(1196, 208.00002)
+[node name="Tray" type="Control" parent="." unique_id=653970039]
+layout_mode = 1
+anchor_left = 0.8263889
+anchor_top = 0.024691358
+anchor_right = 0.9655555
+anchor_bottom = 0.61755556
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+focus_neighbor_left = NodePath("../Grid")
+focus_neighbor_top = NodePath("../Grid")
+focus_neighbor_right = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_bottom = NodePath("../VBoxContainer/HowToPlayButton")
+focus_next = NodePath("../VBoxContainer/HowToPlayButton")
+focus_previous = NodePath("../Grid")
+focus_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TrayPlaceholder" type="Sprite2D" parent="Tray" unique_id=1587562529]
+position = Vector2(244, 192.00002)
 scale = Vector2(3.8125, 3)
 texture = ExtResource("2_yuxfv")
