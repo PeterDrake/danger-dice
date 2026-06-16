@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b3585mdgse1bl"]
 
+[ext_resource type="Script" uid="uid://lngchbyac4b1" path="res://title_page.gd" id="1_44833"]
+
 [node name="TitlePage" type="Control" unique_id=2084414339]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_44833")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2110052354]
 layout_mode = 1
@@ -24,7 +27,7 @@ focus_neighbor_right = NodePath("../HBoxContainer/VBoxContainerLeft/PlayButton")
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainerLeft/PlayButton")
 focus_next = NodePath("../HBoxContainer/VBoxContainerLeft/PlayButton")
 focus_previous = NodePath("../HBoxContainer/VBoxContainerRight/QuitButton")
-focus_mode = 2
+focus_mode = 3
 theme_override_font_sizes/font_size = 72
 text = "Danger Dice"
 horizontal_alignment = 1
