@@ -26,50 +26,50 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer Left" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1184359249]
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1184359249]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Left" unique_id=1269694679]
+[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft" unique_id=1269694679]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 48
 text = "Play"
 
-[node name="HowToPlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Left" unique_id=1640645317]
+[node name="HowToPlayButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft" unique_id=1640645317]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 48
 text = "How to Play	"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Left" unique_id=695224933]
+[node name="OptionsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft" unique_id=695224933]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 48
 text = "Options"
 
-[node name="VBoxContainer Right" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=4519712]
+[node name="VBoxContainerRight" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=4519712]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="AccessibilityButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Right" unique_id=883169416]
+[node name="AccessibilityButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight" unique_id=883169416]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 48
 text = "Accessibility"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Right" unique_id=473429950]
+[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight" unique_id=473429950]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 48
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer Right" unique_id=1478008875]
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight" unique_id=1478008875]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 6
