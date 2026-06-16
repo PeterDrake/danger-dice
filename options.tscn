@@ -34,7 +34,6 @@ text = "Choose exactly six dangers"
 horizontal_alignment = 1
 
 [node name="DefaultDangerButton" type="Button" parent="HBoxContainer/VBoxContainerRight" unique_id=1743598909]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
