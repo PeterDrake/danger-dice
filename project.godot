@@ -8,6 +8,11 @@
 
 config_version=5
 
+[accessibility]
+
+general/accessibility_support=1
+general/updates_per_second=100
+
 [application]
 
 config/name="danger-dice"
@@ -18,6 +23,7 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [physics]
 
@@ -26,3 +32,4 @@ window/stretch/aspect="expand"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
