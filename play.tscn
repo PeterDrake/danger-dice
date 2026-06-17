@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ckgmklf2iscw2" path="res://play.gd" id="1_yuxfv"]
 [ext_resource type="PackedScene" uid="uid://07216rpl44pm" path="res://hex.tscn" id="2_2jglr"]
 [ext_resource type="Texture2D" uid="uid://ldcyys1qye2x" path="res://PlaceholderAssets/Tray.png" id="2_yuxfv"]
+[ext_resource type="PackedScene" uid="uid://c4o46i87blyhc" path="res://die.tscn" id="4_2jglr"]
 
 [node name="Play" type="Control" unique_id=535170605]
 layout_mode = 3
@@ -285,6 +286,36 @@ focus_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TrayPlaceholder" type="Sprite2D" parent="Tray" unique_id=1587562529]
+visible = false
 position = Vector2(244, 192.00002)
 scale = Vector2(3.8125, 3)
 texture = ExtResource("2_yuxfv")
+
+[node name="Die1" parent="Tray" unique_id=1524308932 instance=ExtResource("4_2jglr")]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.041666668
+anchor_right = 0.9
+anchor_bottom = 0.3746667
+offset_right = 0.0
+offset_bottom = 0.12799072
+
+[node name="Die2" parent="Tray" unique_id=1901438862 instance=ExtResource("4_2jglr")]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.33333334
+anchor_right = 0.9
+anchor_bottom = 0.6663334
+offset_right = 0.0
+offset_bottom = 0.12799072
+
+[node name="Die3" parent="Tray" unique_id=499569901 instance=ExtResource("4_2jglr")]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.625
+anchor_right = 0.9
+anchor_bottom = 0.958
+offset_right = 0.0
+offset_bottom = 0.12799072
+
+[connection signal="focus_entered" from="Grid" to="." method="_on_grid_focus_entered"]

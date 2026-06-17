@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c4o46i87blyhc"]
+
+[ext_resource type="Texture2D" uid="uid://bevk83kduign7" path="res://PlaceholderAssets/4.png" id="1_fl3nv"]
+[ext_resource type="Script" uid="uid://dnf8o2wa0p7cj" path="res://die.gd" id="2_gxo0y"]
+
+[node name="Die" type="TextureButton" unique_id=1524308932]
+anchors_preset = -1
+anchor_right = 0.11100001
+anchor_bottom = 0.19800001
+offset_right = -87.87201
+offset_bottom = -88.304016
+texture_normal = ExtResource("1_fl3nv")
+script = ExtResource("2_gxo0y")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

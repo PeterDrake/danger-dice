@@ -6,12 +6,8 @@ var grid_mode := false
 
 signal newly_activated()
 
-const OFFSETS = {'north':[-1, 0],
-				 'northwest':[-1, -1],
-				 'northeast':[0, 1],
-				 'south':[1, 0],
-				 'southwest':[0, -1],
-				 'southeast':[1, 1]}
+const OFFSETS = {'north':[-1, 0], 'northwest':[-1, -1], 'northeast':[0, 1],
+				 'south':[1,  0], 'southwest':[0,  -1], 'southeast':[1, 1]}
 
 func _ready() -> void:
 	hexes = {
@@ -21,7 +17,7 @@ func _ready() -> void:
 		[4,2]:$Grid/Hex4_2, [4,3]:$Grid/Hex4_3, [4,4]:$Grid/Hex4_4, [4,5]:$Grid/Hex4_5,
 		[5,3]:$Grid/Hex5_3, [5,4]:$Grid/Hex5_4, [5,5]:$Grid/Hex5_5}
 	for pair in hexes:
-		hexes[pair].button_down.connect(_on_hex_pressed.bind(pair))
+		hexes[pair].button_down.connect(_on_hex_button_down.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
 		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
 	hexes[[3,3]].set_current(true)
@@ -45,7 +41,7 @@ func _navigate(direction):
 func _activate_current_hex():
 	hexes[current_hex].set_activated(true)
 
-func _on_hex_pressed(pair: Array) -> void:
+func _on_hex_button_down(pair: Array) -> void:
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)
