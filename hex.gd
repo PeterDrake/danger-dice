@@ -26,6 +26,7 @@ func set_activated(value: bool):
 		texture_normal = texture_pressed
 		texture_focused = texture_pressed
 	else:
+		current_face = 0
 		texture_normal = original_normal
 		texture_focused = original_focused
 
@@ -34,7 +35,7 @@ func set_current(value: bool):
 
 func set_value(value: int):
 	if value == NO_DIE_HERE:
-			$Label.text = ""
+		$Label.text = ""
 	else:
 		current_face = value
 		$Label.text = str(value)
