@@ -24,11 +24,13 @@ func _ready() -> void:
 	# Buttons on how to play page
 	$HowToPlay/VBoxContainer/ReturnButton.pressed.connect(_on_how_to_play_return_button_pressed)
 
-
 func _on_play_button_pressed():
 	$TitlePage.visible = false
 	$Play.visible = true
 	$Play/VBoxContainer/HowToPlayButton.grab_focus.call_deferred()
+	$Play/Die1.roll()
+	$Play/Die2.roll()
+	$Play/Die3.roll()
 
 func _on_how_to_play_button_pressed(previous_page):
 	# This button is on both the Title and Play pages

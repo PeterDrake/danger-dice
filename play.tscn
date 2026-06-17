@@ -292,4 +292,5 @@ offset_top = 0.039993286
 offset_right = 0.44799805
 offset_bottom = -0.2640381
 
+[connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
 [connection signal="focus_entered" from="Grid" to="." method="_on_grid_focus_entered"]

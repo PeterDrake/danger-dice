@@ -63,3 +63,8 @@ func _make_center_hex_current():
 	
 func _on_hex_newly_activated():
 	emit_signal("newly_activated")
+
+func _on_roll_dice_button_pressed() -> void:
+	$Die1.roll()
+	$Die2.roll()
+	$Die3.roll()
