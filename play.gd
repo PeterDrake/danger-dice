@@ -43,7 +43,7 @@ func reset_game():
 	for die in [$Die1, $Die2, $Die3]:
 		die.disabled = false
 	_clear_undo_stack()
-	print("Undo stack cleared")
+	$VBoxContainer2/UndoButton.disabled = true
 
 
 func _process(_delta: float) -> void:
@@ -67,6 +67,7 @@ func _on_hex_button_down(pair: Array) -> void:
 	if hexes[pair].current_face == NO_DIE_HERE:
 		print("Placing die")
 		undo_stack.push_back([hexes[pair], current_die_index])
+		$VBoxContainer2/UndoButton.disabled = false
 		print(undo_stack)
 		hexes[pair].set_activated(true)
 		dice[current_die_index].disabled = true
@@ -111,3 +112,5 @@ func _on_undo_button_pressed() -> void:
 	dice[index].disabled = false
 	hex.set_activated(false)
 	hex.set_value(NO_DIE_HERE)
+	if not undo_stack:
+		$VBoxContainer2/UndoButton.disabled = true
