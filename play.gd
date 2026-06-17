@@ -5,6 +5,7 @@ var dice := {}
 var current_hex := [3,3]
 var grid_mode := false
 var current_die_index := 1
+var undo_stack := []
 
 const NO_DIE_HERE := 0
 
@@ -32,7 +33,6 @@ func _ready() -> void:
 		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
 	for die in dice:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
-	reset_game()
 	
 func reset_game():
 	hexes[[3,3]].set_current(true)
@@ -40,6 +40,9 @@ func reset_game():
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
 	_on_hex_button_down([3, 3])
 	_on_roll_dice_button_pressed()
+	_clear_undo_stack()
+	print("Undo stack cleared")
+
 
 func _process(_delta: float) -> void:
 	if grid_mode:
@@ -59,9 +62,15 @@ func _on_hex_button_down(pair: Array) -> void:
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)
-	if hexes[current_hex].current_face == NO_DIE_HERE:
+	if hexes[pair].current_face == NO_DIE_HERE:
+		print("Placing die")
+		undo_stack.push_back(hexes[pair])
+		print(undo_stack)
 		hexes[pair].set_activated(true)
 		hexes[pair].set_value(dice[current_die_index].current_face)
+
+func _clear_undo_stack():
+	undo_stack = []
 
 func _on_hex_focus_entered():
 	grid_mode = true
