@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bevk83kduign7" path="res://PlaceholderAssets/die_1.png" id="1_fl3nv"]
 [ext_resource type="Script" uid="uid://dnf8o2wa0p7cj" path="res://die.gd" id="2_gxo0y"]
+[ext_resource type="Texture2D" uid="uid://nr6r1uwme4rq" path="res://PlaceholderAssets/die_pressed_1.png" id="2_muu1c"]
 
 [node name="Die" type="TextureButton" unique_id=1524308932]
 anchors_preset = -1
@@ -11,6 +12,8 @@ offset_right = -87.87201
 offset_bottom = -88.304016
 toggle_mode = true
 texture_normal = ExtResource("1_fl3nv")
+texture_pressed = ExtResource("2_muu1c")
+texture_disabled = ExtResource("2_muu1c")
 script = ExtResource("2_gxo0y")
 metadata/_edit_use_anchors_ = true
 
