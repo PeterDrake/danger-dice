@@ -31,18 +31,25 @@ func _on_play_button_pressed():
 	$Play.reset_game()
 
 func _on_how_to_play_button_pressed(previous_page):
+	print("You pressed how to play")
 	# This button is on both the Title and Play pages
 	previous_page.visible = false
 	_previous_page = previous_page
 	$HowToPlay.visible = true
-	$HowToPlay/VBoxContainer/PageTitle.grab_focus.call_deferred()
+	if get_tree().is_accessibility_enabled():
+		$HowToPlay/VBoxContainer/PageTitle.grab_focus.call_deferred()
+	else:
+		$HowToPlay/VBoxContainer/ReturnButton.grab_focus.call_deferred()
 
 func _on_options_button_pressed(previous_page):
 	# This button is on both the Title and Play pages
 	previous_page.visible = false
 	_previous_page = previous_page
 	$Options.visible = true
-	$Options/HBoxContainer/VBoxContainerLeft/ChooseDangerLabel.grab_focus.call_deferred()
+	if get_tree().is_accessibility_enabled():
+		$Options/HBoxContainer/VBoxContainerLeft/ChooseDangerLabel.grab_focus.call_deferred()
+	else:
+		$Options/HBoxContainer/VBoxContainerLeft/DefaultDangerButton.grab_focus.call_deferred()
 
 func _on_accessibility_button_pressed():
 	$TitlePage.visible = false
