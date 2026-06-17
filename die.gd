@@ -1,12 +1,13 @@
 extends TextureButton
 
 var faces
+var rng = RandomNumberGenerator.new()
+
 func _ready() -> void:
 	faces = {1: load("res://PlaceholderAssets/die_1.png"), 2: load("res://PlaceholderAssets/die_2.png"),
 			 3: load("res://PlaceholderAssets/die_3.png"), 4: load("res://PlaceholderAssets/die_4.png"),
 			 5: load("res://PlaceholderAssets/die_5.png"), 6: load("res://PlaceholderAssets/die_5.png")}
-	var rng = RandomNumberGenerator.new()
-	texture_normal = faces[randi_range(1, 6)]
+	roll()
 	var image = texture_normal.get_image()
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(image)
@@ -17,3 +18,6 @@ func _process(_delta: float) -> void:
 
 func _on_pressed() -> void:
 	pass
+
+func roll():
+	texture_normal = faces[rng.randi_range(1, 6)]
