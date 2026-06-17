@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djm46l8ct86mm"
-path="res://.godot/imported/die_focused_5.png-a222f0f5fa58aebc8c61826d1bfddf3d.ctex"
+uid="uid://dytv0fxr4mvju"
+path="res://.godot/imported/die_pressed_focused_5.png-54a29fecdf7bb5a325850c1c168622a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlaceholderAssets/die_focused_5.png"
-dest_files=["res://.godot/imported/die_focused_5.png-a222f0f5fa58aebc8c61826d1bfddf3d.ctex"]
+source_file="res://PlaceholderAssets/die_pressed_focused_5.png"
+dest_files=["res://.godot/imported/die_pressed_focused_5.png-54a29fecdf7bb5a325850c1c168622a5.ctex"]
 
 [params]
 
