@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://buk3j8sn48smg"]
 
 [ext_resource type="Script" uid="uid://bhue8bad3msav" path="res://options.gd" id="1_se8ut"]
-[ext_resource type="AudioStream" uid="uid://crx5qrduhlyma" path="res://Invalid.wav" id="2_ao2gm"]
 
 [node name="Options" type="Control" unique_id=314918461]
 layout_mode = 3
@@ -276,6 +275,3 @@ focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1928201809]
-stream = ExtResource("2_ao2gm")
