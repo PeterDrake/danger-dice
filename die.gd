@@ -28,4 +28,3 @@ func roll():
 	current_face = rng.randi_range(1, 6)
 	texture_normal = faces[current_face]
 	texture_pressed = pressed_faces[current_face]
-	texture_disabled = texture_pressed

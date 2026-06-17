@@ -40,6 +40,8 @@ func reset_game():
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
 	_on_hex_button_down([3, 3])
 	_on_roll_dice_button_pressed()
+	for die in [$Die1, $Die2, $Die3]:
+		die.disabled = false
 	_clear_undo_stack()
 	print("Undo stack cleared")
 
