@@ -47,13 +47,12 @@ func _navigate(direction):
 		hexes[current_hex].set_current(true)
 
 func _on_hex_button_down(pair: Array) -> void:
-	print("button down")
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)
 	if not hexes[current_hex]._activated:
 		hexes[pair].set_activated(true)
-	print(dice[current_die_index].current_face)
+		hexes[pair].set_value(dice[current_die_index].current_face)
 
 func _on_hex_focus_entered():
 	grid_mode = true

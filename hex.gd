@@ -28,3 +28,6 @@ func set_activated(value: bool):
 
 func set_current(value: bool):
 	_current = value
+
+func set_value(value: int):
+	$Label.text = str(value)
