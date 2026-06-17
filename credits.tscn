@@ -41,7 +41,7 @@ focus_neighbor_right = NodePath("../ReturnButton")
 focus_neighbor_bottom = NodePath("../ReturnButton")
 focus_next = NodePath("../ReturnButton")
 focus_previous = NodePath("../PageTitle")
-focus_mode = 2
+focus_mode = 3
 theme_override_font_sizes/font_size = 24
 text = "Game Design: Peter Drake and Saph Leeper
 Programming: Peter Drake and Saph Leeper
@@ -55,12 +55,6 @@ autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=475116850]
 layout_mode = 2
-focus_neighbor_left = NodePath("../PageBody")
-focus_neighbor_top = NodePath("../PageBody")
-focus_neighbor_right = NodePath("../PageTitle")
-focus_neighbor_bottom = NodePath("../PageTitle")
-focus_next = NodePath("../PageTitle")
-focus_previous = NodePath("../PageBody")
 accessibility_name = "Return"
 accessibility_description = "Returns you to previous screen"
 theme_override_font_sizes/font_size = 36
