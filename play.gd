@@ -65,12 +65,10 @@ func _on_hex_button_down(pair: Array) -> void:
 	current_hex = pair
 	hexes[pair].set_current(true)
 	if hexes[pair].current_face == NO_DIE_HERE and not dice[current_die_index].disabled:
-		print("Placing die")
 		undo_stack.push_back([hexes[pair], current_die_index])
 		$VBoxContainer2/UndoButton.disabled = false
 		if len(undo_stack) == 3:
 			$VBoxContainer2/RollDiceButton.disabled = false
-		print(undo_stack)
 		hexes[pair].set_activated(true)
 		dice[current_die_index].disabled = true
 		hexes[pair].set_value(dice[current_die_index].current_face)
@@ -106,7 +104,6 @@ func _on_die_button_pressed(selected):
 			current_die_index = die
 		else:
 			dice[die].button_pressed = false
-		print(str(dice[die].name) + " " + str(dice[die].button_pressed))
 
 func _on_undo_button_pressed() -> void:
 	var pair = undo_stack.pop_back()

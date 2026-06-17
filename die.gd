@@ -18,12 +18,6 @@ func _ready() -> void:
 	bitmap.create_from_image_alpha(image)
 	texture_click_mask = bitmap
 
-func _process(_delta: float) -> void:
-	pass
-
-func _on_pressed() -> void:
-	print(name + " pressed")
-
 func roll():
 	disabled = false
 	current_face = rng.randi_range(1, 6)
