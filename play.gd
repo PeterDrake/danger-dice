@@ -6,6 +6,8 @@ var current_hex := [3,3]
 var grid_mode := false
 var current_die_index := 1
 
+const NO_DIE_HERE := 0
+
 signal newly_activated()
 
 const OFFSETS = {'north':[-1, 0], 'northwest':[-1, -1], 'northeast':[0, 1],
@@ -50,7 +52,7 @@ func _on_hex_button_down(pair: Array) -> void:
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)
-	if not hexes[current_hex]._activated:
+	if hexes[current_hex].current_face == NO_DIE_HERE:
 		hexes[pair].set_activated(true)
 		hexes[pair].set_value(dice[current_die_index].current_face)
 

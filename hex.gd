@@ -1,9 +1,12 @@
 extends TextureButton
 
+const NO_DIE_HERE := 0
+
 var _current: bool
 var _activated: bool
 var original_normal := texture_normal
 var original_focused := texture_focused
+var current_face := NO_DIE_HERE
 
 signal newly_activated()
 
@@ -30,4 +33,5 @@ func set_current(value: bool):
 	_current = value
 
 func set_value(value: int):
+	current_face = value
 	$Label.text = str(value)
