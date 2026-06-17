@@ -66,7 +66,7 @@ func _on_hex_button_down(pair: Array) -> void:
 	hexes[pair].set_current(true)
 	if hexes[pair].current_face == NO_DIE_HERE:
 		print("Placing die")
-		undo_stack.push_back(hexes[pair])
+		undo_stack.push_back([hexes[pair], current_die_index])
 		print(undo_stack)
 		hexes[pair].set_activated(true)
 		dice[current_die_index].disabled = true
@@ -103,3 +103,11 @@ func _on_die_button_pressed(selected):
 		else:
 			dice[die].button_pressed = false
 		print(str(dice[die].name) + " " + str(dice[die].button_pressed))
+
+func _on_undo_button_pressed() -> void:
+	var pair = undo_stack.pop_back()
+	var hex = pair[0]
+	var index = pair[1]
+	dice[index].disabled = false
+	hex.set_activated(false)
+	hex.set_value(NO_DIE_HERE)

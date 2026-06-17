@@ -33,5 +33,8 @@ func set_current(value: bool):
 	_current = value
 
 func set_value(value: int):
-	current_face = value
-	$Label.text = str(value)
+	if value == NO_DIE_HERE:
+			$Label.text = ""
+	else:
+		current_face = value
+		$Label.text = str(value)

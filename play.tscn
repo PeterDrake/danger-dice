@@ -318,5 +318,6 @@ focus_neighbor_bottom = NodePath("../Die1")
 focus_next = NodePath("../VBoxContainer/HowToPlayButton")
 focus_previous = NodePath("../Die2")
 
+[connection signal="pressed" from="VBoxContainer2/UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
 [connection signal="focus_entered" from="Grid" to="." method="_on_grid_focus_entered"]
