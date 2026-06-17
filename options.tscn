@@ -46,7 +46,7 @@ focus_neighbor_right = NodePath("../../VBoxContainerRight/VBoxContainerVolume/Vo
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainerLeft/CheckBox3")
 focus_next = NodePath("../HBoxContainer/VBoxContainerLeft/CheckBox3")
 focus_previous = NodePath("../../VBoxContainerRight/ReturnButton")
-accessibility_description = "Sets the possible dangers to (list defaults)"
+accessibility_description = "Sets the possible dangers to chainsaw, clown, lava, lightning, rattlesnake, and shark."
 theme_override_font_sizes/font_size = 24
 text = "Default Dangers
 "

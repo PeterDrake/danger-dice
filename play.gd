@@ -28,7 +28,7 @@ func _ready() -> void:
 		3: $Die3
 	}
 	for pair in hexes:
-		hexes[pair].button_down.connect(_on_hex_button_down.bind(pair))
+		hexes[pair].pressed.connect(_on_hex_pressed.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
 		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
 	for die in dice:
@@ -38,7 +38,7 @@ func reset_game():
 	hexes[[3,3]].set_current(true)
 	_on_roll_dice_button_pressed()
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
-	_on_hex_button_down([3, 3])
+	_on_hex_pressed([3, 3])
 	_on_roll_dice_button_pressed()
 	for die in [$Die1, $Die2, $Die3]:
 		die.disabled = false
@@ -60,7 +60,7 @@ func _navigate(direction):
 		hexes[current_hex].grab_focus.call_deferred()
 		hexes[current_hex].set_current(true)
 
-func _on_hex_button_down(pair: Array) -> void:
+func _on_hex_pressed(pair: Array) -> void:
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)

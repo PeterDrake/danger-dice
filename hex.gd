@@ -16,7 +16,6 @@ func _ready() -> void:
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(image)
 	texture_click_mask = bitmap
-	
 	_current = false
 	set_activated(false)
 
@@ -37,7 +36,7 @@ func set_current(value: bool):
 
 func set_value(value: int):
 	if value == NO_DIE_HERE:
-		$Label.text = ""
+		$Label.text = "Empty"
 	else:
 		current_face = value
 		$Label.text = str(value)

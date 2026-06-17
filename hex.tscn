@@ -21,9 +21,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=930906120]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 16.0
 offset_top = 40.0
-offset_right = 88.0
+offset_right = 114.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 32
+text = "Empty"
 horizontal_alignment = 1

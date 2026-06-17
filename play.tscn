@@ -98,14 +98,65 @@ accessibility_name = "Roll dice"
 theme_override_font_sizes/font_size = 36
 text = "Roll Dice"
 
+[node name="Die1" parent="." unique_id=1524308932 instance=ExtResource("4_2jglr")]
+layout_mode = 1
+anchor_left = 0.30527782
+anchor_top = -0.025074072
+anchor_right = 0.41627777
+anchor_bottom = 0.17292592
+offset_left = 0.3199463
+offset_top = 0.24799919
+offset_right = 0.44799805
+offset_bottom = -0.055992126
+focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_top = NodePath("../Die3")
+focus_neighbor_right = NodePath("../Grid/Hex1_1")
+focus_neighbor_bottom = NodePath("../Die2")
+focus_next = NodePath("../Die2")
+focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
+
+[node name="Die2" parent="." unique_id=1901438862 instance=ExtResource("4_2jglr")]
+layout_mode = 1
+anchor_left = 0.30527782
+anchor_top = 0.14792596
+anchor_right = 0.41627777
+anchor_bottom = 0.34592593
+offset_left = 0.3199463
+offset_top = 0.14398193
+offset_right = 0.44799805
+offset_bottom = -0.16000366
+focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_top = NodePath("../Die1")
+focus_neighbor_right = NodePath("../Grid/Hex1_1")
+focus_neighbor_bottom = NodePath("../Die3")
+focus_next = NodePath("../Die3")
+focus_previous = NodePath("../Die1")
+
+[node name="Die3" parent="." unique_id=499569901 instance=ExtResource("4_2jglr")]
+layout_mode = 1
+anchor_left = 0.30527782
+anchor_top = 0.32092595
+anchor_right = 0.41627777
+anchor_bottom = 0.51892596
+offset_left = 0.3199463
+offset_top = 0.039993286
+offset_right = 0.44799805
+offset_bottom = -0.2640381
+focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_top = NodePath("../Die2")
+focus_neighbor_right = NodePath("../Grid/Hex1_1")
+focus_neighbor_bottom = NodePath("../Die1")
+focus_next = NodePath("../Grid/Hex1_1")
+focus_previous = NodePath("../Die2")
+
 [node name="Grid" type="Control" parent="." unique_id=927965869]
 layout_mode = 1
 anchor_left = 0.45833334
 anchor_top = 0.012345679
 anchor_right = 0.9933333
 anchor_bottom = 0.9632346
-offset_right = -0.3199997
-offset_bottom = -0.1760025
+offset_right = -0.3199463
+offset_bottom = -0.17602539
 focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
 focus_neighbor_top = NodePath("../VBoxContainer2/RollDiceButton")
 focus_neighbor_right = NodePath("../Die1")
@@ -113,6 +164,7 @@ focus_neighbor_bottom = NodePath("Hex3_3")
 focus_next = NodePath("../Die1")
 focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
 focus_mode = 3
+accessibility_name = "Grid of hexes"
 metadata/_edit_use_anchors_ = true
 
 [node name="Hex1_1" parent="Grid" unique_id=35864232 instance=ExtResource("2_2jglr")]
@@ -361,57 +413,6 @@ focus_neighbor_right = NodePath("../Hex5_3")
 focus_neighbor_bottom = NodePath("../Hex3_5")
 focus_next = NodePath("../Hex5_3")
 focus_previous = NodePath("../Hex5_4")
-
-[node name="Die1" parent="." unique_id=1524308932 instance=ExtResource("4_2jglr")]
-layout_mode = 1
-anchor_left = 0.30527782
-anchor_top = -0.025074072
-anchor_right = 0.41627777
-anchor_bottom = 0.17292592
-offset_left = 0.3199463
-offset_top = 0.24799919
-offset_right = 0.44799805
-offset_bottom = -0.055999756
-focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
-focus_neighbor_top = NodePath("../Die3")
-focus_neighbor_right = NodePath("../Grid/Hex1_1")
-focus_neighbor_bottom = NodePath("../Die2")
-focus_next = NodePath("../Die2")
-focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
-
-[node name="Die2" parent="." unique_id=1901438862 instance=ExtResource("4_2jglr")]
-layout_mode = 1
-anchor_left = 0.30527782
-anchor_top = 0.14792596
-anchor_right = 0.41627777
-anchor_bottom = 0.34592593
-offset_left = 0.3199463
-offset_top = 0.14398193
-offset_right = 0.44799805
-offset_bottom = -0.16000366
-focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
-focus_neighbor_top = NodePath("../Die1")
-focus_neighbor_right = NodePath("../Grid/Hex1_1")
-focus_neighbor_bottom = NodePath("../Die3")
-focus_next = NodePath("../Die3")
-focus_previous = NodePath("../Die1")
-
-[node name="Die3" parent="." unique_id=499569901 instance=ExtResource("4_2jglr")]
-layout_mode = 1
-anchor_left = 0.30527782
-anchor_top = 0.32092595
-anchor_right = 0.41627777
-anchor_bottom = 0.51892596
-offset_left = 0.3199463
-offset_top = 0.039993286
-offset_right = 0.44799805
-offset_bottom = -0.2640381
-focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
-focus_neighbor_top = NodePath("../Die2")
-focus_neighbor_right = NodePath("../Grid/Hex1_1")
-focus_neighbor_bottom = NodePath("../Die1")
-focus_next = NodePath("../Grid/Hex1_1")
-focus_previous = NodePath("../Die2")
 
 [connection signal="pressed" from="VBoxContainer2/UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
