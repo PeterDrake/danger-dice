@@ -25,6 +25,7 @@ func _on_pressed() -> void:
 	print(name + " pressed")
 
 func roll():
+	disabled = false
 	current_face = rng.randi_range(1, 6)
 	texture_normal = faces[current_face]
 	texture_pressed = pressed_faces[current_face]
