@@ -2,6 +2,7 @@ extends TextureButton
 
 var faces
 var pressed_faces
+var focused_faces
 var current_face
 var rng = RandomNumberGenerator.new()
 
@@ -12,6 +13,9 @@ func _ready() -> void:
 	pressed_faces = {1: load("res://PlaceholderAssets/die_pressed_1.png"), 2: load("res://PlaceholderAssets/die_pressed_2.png"),
 					 3: load("res://PlaceholderAssets/die_pressed_3.png"), 4: load("res://PlaceholderAssets/die_pressed_4.png"),
 					 5: load("res://PlaceholderAssets/die_pressed_5.png"), 6: load("res://PlaceholderAssets/die_pressed_6.png")}
+	focused_faces = {1: load("res://PlaceholderAssets/die_focused_1.png"), 2: load("res://PlaceholderAssets/die_focused_2.png"),
+					 3: load("res://PlaceholderAssets/die_focused_3.png"), 4: load("res://PlaceholderAssets/die_focused_4.png"),
+					 5: load("res://PlaceholderAssets/die_focused_5.png"), 6: load("res://PlaceholderAssets/die_focused_6.png")}
 	roll()
 	var image = texture_normal.get_image()
 	var bitmap = BitMap.new()
@@ -24,3 +28,5 @@ func roll():
 	accessibility_name = str(current_face)
 	texture_normal = faces[current_face]
 	texture_pressed = pressed_faces[current_face]
+	texture_focused = focused_faces[current_face]
+	texture_hover = texture_focused
