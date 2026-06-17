@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://buk3j8sn48smg"]
 
+[ext_resource type="Script" uid="uid://bhue8bad3msav" path="res://options.gd" id="1_se8ut"]
+[ext_resource type="AudioStream" uid="uid://crx5qrduhlyma" path="res://Invalid.wav" id="2_ao2gm"]
+
 [node name="Options" type="Control" unique_id=314918461]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_se8ut")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1499690826]
 layout_mode = 1
@@ -255,8 +259,9 @@ focus_neighbor_right = NodePath("../../../VBoxContainerRight/DefaultDangerButton
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 focus_next = NodePath("../../ReturnButton")
 focus_previous = NodePath("../VolumeLabel")
-max_value = 10.0
-value = 5.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="ReturnButton" type="Button" parent="HBoxContainer/VBoxContainerLeft" unique_id=166376118]
 layout_mode = 2
@@ -271,3 +276,6 @@ focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1928201809]
+stream = ExtResource("2_ao2gm")
