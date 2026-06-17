@@ -67,6 +67,7 @@ func _on_hex_button_down(pair: Array) -> void:
 		undo_stack.push_back(hexes[pair])
 		print(undo_stack)
 		hexes[pair].set_activated(true)
+		dice[current_die_index].disabled = true
 		hexes[pair].set_value(dice[current_die_index].current_face)
 
 func _clear_undo_stack():
