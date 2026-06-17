@@ -19,20 +19,27 @@ func _ready() -> void:
 		[2,1]:$Grid/Hex2_1, [2,2]:$Grid/Hex2_2, [2,3]:$Grid/Hex2_3, [2,4]:$Grid/Hex2_4,
 		[3,1]:$Grid/Hex3_1, [3,2]:$Grid/Hex3_2, [3,3]:$Grid/Hex3_3, [3,4]:$Grid/Hex3_4, [3,5]:$Grid/Hex3_5,
 		[4,2]:$Grid/Hex4_2, [4,3]:$Grid/Hex4_3, [4,4]:$Grid/Hex4_4, [4,5]:$Grid/Hex4_5,
-		[5,3]:$Grid/Hex5_3, [5,4]:$Grid/Hex5_4, [5,5]:$Grid/Hex5_5}
+		[5,3]:$Grid/Hex5_3, [5,4]:$Grid/Hex5_4, [5,5]:$Grid/Hex5_5
+	}
 	dice = {
 		1: $Die1,
 		2: $Die2,
-		3: $Die3}
-	
+		3: $Die3
+	}
 	for pair in hexes:
 		hexes[pair].button_down.connect(_on_hex_button_down.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
 		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
-	hexes[[3,3]].set_current(true)
-	
 	for die in dice:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
+	reset_game()
+	
+func reset_game():
+	hexes[[3,3]].set_current(true)
+	_on_roll_dice_button_pressed()
+	hexes[[3, 3]].set_value(NO_DIE_HERE)
+	_on_hex_button_down([3, 3])
+	_on_roll_dice_button_pressed()
 
 func _process(_delta: float) -> void:
 	if grid_mode:
