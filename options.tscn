@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://buk3j8sn48smg"]
 
+[ext_resource type="Script" uid="uid://bhue8bad3msav" path="res://options.gd" id="1_se8ut"]
+
 [node name="Options" type="Control" unique_id=314918461]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_se8ut")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1499690826]
 layout_mode = 1
@@ -74,6 +77,7 @@ focus_neighbor_bottom = NodePath("../CheckBox5")
 focus_next = NodePath("../CheckBox5")
 focus_previous = NodePath("../../VBoxContainerRight/CheckBox9")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Chainsaw"
 alignment = 1
 
@@ -87,6 +91,7 @@ focus_neighbor_bottom = NodePath("../CheckBox10")
 focus_next = NodePath("../CheckBox10")
 focus_previous = NodePath("../CheckBox3")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Clown"
 alignment = 1
 
@@ -113,6 +118,7 @@ focus_neighbor_bottom = NodePath("../CheckBox12")
 focus_next = NodePath("../CheckBox12")
 focus_previous = NodePath("../CheckBox10")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Lava"
 alignment = 1
 
@@ -126,6 +132,7 @@ focus_neighbor_bottom = NodePath("../CheckBox4")
 focus_next = NodePath("../CheckBox4")
 focus_previous = NodePath("../CheckBox6")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Lightning"
 alignment = 1
 
@@ -156,6 +163,7 @@ focus_neighbor_bottom = NodePath("../CheckBox7")
 focus_next = NodePath("../CheckBox7")
 focus_previous = NodePath("../../VBoxContainerLeft/CheckBox4")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Rattlesnake"
 alignment = 1
 
@@ -169,6 +177,7 @@ focus_neighbor_bottom = NodePath("../CheckBox2")
 focus_next = NodePath("../CheckBox2")
 focus_previous = NodePath("../CheckBox")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Shark"
 alignment = 1
 
@@ -255,8 +264,9 @@ focus_neighbor_right = NodePath("../../../VBoxContainerRight/DefaultDangerButton
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 focus_next = NodePath("../../ReturnButton")
 focus_previous = NodePath("../VolumeLabel")
-max_value = 10.0
-value = 5.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="ReturnButton" type="Button" parent="HBoxContainer/VBoxContainerLeft" unique_id=166376118]
 layout_mode = 2
@@ -271,3 +281,5 @@ focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainerRight/DefaultDangerButton" to="." method="_on_default_danger_button_pressed"]
