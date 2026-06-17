@@ -25,10 +25,12 @@ metadata/_edit_use_anchors_ = true
 [node name="HowToPlayButton" type="Button" parent="VBoxContainer" unique_id=2083055709]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../../VBoxContainer2/RollDiceButton")
+focus_neighbor_left = NodePath("../../Die1")
+focus_neighbor_top = NodePath("../../Die3")
 focus_neighbor_right = NodePath("../../Grid")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../../Die3")
 accessibility_name = "How to play"
 theme_override_font_sizes/font_size = 36
 text = "How to Play"
@@ -36,6 +38,7 @@ text = "How to Play"
 [node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1365590406]
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../Die1")
 focus_neighbor_top = NodePath("../HowToPlayButton")
 focus_neighbor_right = NodePath("../../Grid")
 focus_neighbor_bottom = NodePath("../QuitToMenuButton")
@@ -48,6 +51,7 @@ text = "Options"
 [node name="QuitToMenuButton" type="Button" parent="VBoxContainer" unique_id=719741258]
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../Die1")
 focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_right = NodePath("../../Grid")
 focus_neighbor_bottom = NodePath("../../VBoxContainer2/UndoButton")
@@ -71,6 +75,7 @@ metadata/_edit_use_anchors_ = true
 [node name="UndoButton" type="Button" parent="VBoxContainer2" unique_id=1738649695]
 layout_mode = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../Die1")
 focus_neighbor_top = NodePath("../../VBoxContainer/QuitToMenuButton")
 focus_neighbor_right = NodePath("../../Grid")
 focus_neighbor_bottom = NodePath("../RollDiceButton")
@@ -83,9 +88,10 @@ text = "Undo"
 [node name="RollDiceButton" type="Button" parent="VBoxContainer2" unique_id=2081423111]
 layout_mode = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../Die1")
 focus_neighbor_top = NodePath("../UndoButton")
 focus_neighbor_right = NodePath("../../Grid")
-focus_neighbor_bottom = NodePath("../../VBoxContainer/HowToPlayButton")
+focus_neighbor_bottom = NodePath("../../Grid")
 focus_next = NodePath("../../Grid")
 focus_previous = NodePath("../UndoButton")
 accessibility_name = "Roll dice"
@@ -102,7 +108,9 @@ offset_right = -0.3199997
 offset_bottom = -0.1760025
 focus_neighbor_left = NodePath("../VBoxContainer/HowToPlayButton")
 focus_neighbor_top = NodePath("../VBoxContainer2/RollDiceButton")
+focus_neighbor_right = NodePath("../Die1")
 focus_neighbor_bottom = NodePath("Hex3_3")
+focus_next = NodePath("../Die1")
 focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
 focus_mode = 2
 metadata/_edit_use_anchors_ = true
@@ -269,6 +277,12 @@ offset_left = 0.3199463
 offset_top = 0.24799919
 offset_right = 0.44799805
 offset_bottom = -0.055999756
+focus_neighbor_left = NodePath("../Grid")
+focus_neighbor_top = NodePath("../Die3")
+focus_neighbor_right = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_bottom = NodePath("../Die2")
+focus_next = NodePath("../Die2")
+focus_previous = NodePath("../Grid")
 
 [node name="Die2" parent="." unique_id=1901438862 instance=ExtResource("4_2jglr")]
 layout_mode = 1
@@ -280,6 +294,12 @@ offset_left = 0.3199463
 offset_top = 0.14398193
 offset_right = 0.44799805
 offset_bottom = -0.16000366
+focus_neighbor_left = NodePath("../Grid")
+focus_neighbor_top = NodePath("../Die1")
+focus_neighbor_right = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_bottom = NodePath("../Die3")
+focus_next = NodePath("../Die3")
+focus_previous = NodePath("../Die1")
 
 [node name="Die3" parent="." unique_id=499569901 instance=ExtResource("4_2jglr")]
 layout_mode = 1
@@ -291,6 +311,12 @@ offset_left = 0.3199463
 offset_top = 0.039993286
 offset_right = 0.44799805
 offset_bottom = -0.2640381
+focus_neighbor_left = NodePath("../Grid")
+focus_neighbor_top = NodePath("../Die2")
+focus_neighbor_right = NodePath("../VBoxContainer/HowToPlayButton")
+focus_neighbor_bottom = NodePath("../Die1")
+focus_next = NodePath("../VBoxContainer/HowToPlayButton")
+focus_previous = NodePath("../Die2")
 
 [connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
 [connection signal="focus_entered" from="Grid" to="." method="_on_grid_focus_entered"]

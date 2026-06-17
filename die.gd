@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	pass
+	print(name + " pressed")
 
 func roll():
 	texture_normal = faces[rng.randi_range(1, 6)]

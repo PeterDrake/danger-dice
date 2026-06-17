@@ -9,6 +9,7 @@ anchor_right = 0.11100001
 anchor_bottom = 0.19800001
 offset_right = -87.87201
 offset_bottom = -88.304016
+toggle_mode = true
 texture_normal = ExtResource("1_fl3nv")
 script = ExtResource("2_gxo0y")
 metadata/_edit_use_anchors_ = true
