@@ -4,8 +4,9 @@ const NO_DIE_HERE := 0
 
 var _current: bool
 var _activated: bool
-var original_normal := texture_normal
-var original_focused := texture_focused
+var original_normal := load("res://PlaceholderAssets/hex_normal.png")
+var original_focused := load("res://PlaceholderAssets/hex_focused.png")
+var pressed_focused := load("res://PlaceholderAssets/hex_pressed_focused.png")
 var current_face := NO_DIE_HERE
 
 signal newly_activated()
@@ -24,11 +25,12 @@ func set_activated(value: bool):
 	if value:
 		emit_signal("newly_activated")
 		texture_normal = texture_pressed
-		texture_focused = texture_pressed
+		texture_focused = pressed_focused
 	else:
 		current_face = 0
 		texture_normal = original_normal
 		texture_focused = original_focused
+	texture_hover = texture_focused
 
 func set_current(value: bool):
 	_current = value
