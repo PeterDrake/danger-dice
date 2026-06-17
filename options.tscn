@@ -77,6 +77,7 @@ focus_neighbor_bottom = NodePath("../CheckBox5")
 focus_next = NodePath("../CheckBox5")
 focus_previous = NodePath("../../VBoxContainerRight/CheckBox9")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Chainsaw"
 alignment = 1
 
@@ -90,6 +91,7 @@ focus_neighbor_bottom = NodePath("../CheckBox10")
 focus_next = NodePath("../CheckBox10")
 focus_previous = NodePath("../CheckBox3")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Clown"
 alignment = 1
 
@@ -116,6 +118,7 @@ focus_neighbor_bottom = NodePath("../CheckBox12")
 focus_next = NodePath("../CheckBox12")
 focus_previous = NodePath("../CheckBox10")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Lava"
 alignment = 1
 
@@ -129,6 +132,7 @@ focus_neighbor_bottom = NodePath("../CheckBox4")
 focus_next = NodePath("../CheckBox4")
 focus_previous = NodePath("../CheckBox6")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Lightning"
 alignment = 1
 
@@ -159,6 +163,7 @@ focus_neighbor_bottom = NodePath("../CheckBox7")
 focus_next = NodePath("../CheckBox7")
 focus_previous = NodePath("../../VBoxContainerLeft/CheckBox4")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Rattlesnake"
 alignment = 1
 
@@ -172,6 +177,7 @@ focus_neighbor_bottom = NodePath("../CheckBox2")
 focus_next = NodePath("../CheckBox2")
 focus_previous = NodePath("../CheckBox")
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Shark"
 alignment = 1
 
