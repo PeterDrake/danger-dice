@@ -4,6 +4,7 @@ var hexes := {}
 var dice := {}
 var current_hex := [3,3]
 var grid_mode := false
+var current_die_index := 1
 
 signal newly_activated()
 
@@ -36,8 +37,6 @@ func _process(_delta: float) -> void:
 		for direction in OFFSETS:
 			if Input.is_action_just_pressed(direction):
 				_navigate(direction)
-			if Input.is_action_just_pressed("activate") and not hexes[current_hex]._activated:
-				_activate_current_hex()
 
 func _navigate(direction):
 	var destination = [current_hex[0] + OFFSETS[direction][0], current_hex[1] + OFFSETS[direction][1]]
@@ -47,15 +46,14 @@ func _navigate(direction):
 		hexes[current_hex].grab_focus.call_deferred()
 		hexes[current_hex].set_current(true)
 
-func _activate_current_hex():
-	hexes[current_hex].set_activated(true)
-
 func _on_hex_button_down(pair: Array) -> void:
+	print("button down")
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)
 	if not hexes[current_hex]._activated:
 		hexes[pair].set_activated(true)
+	print(dice[current_die_index].current_face)
 
 func _on_hex_focus_entered():
 	grid_mode = true
@@ -81,6 +79,7 @@ func _on_die_button_pressed(selected):
 	for die in dice:
 		if dice[die] == selected:
 			dice[die].button_pressed = true
+			current_die_index = die
 		else:
 			dice[die].button_pressed = false
 		print(str(dice[die].name) + " " + str(dice[die].button_pressed))
