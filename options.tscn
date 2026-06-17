@@ -281,3 +281,5 @@ focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainerRight/DefaultDangerButton" to="." method="_on_default_danger_button_pressed"]
