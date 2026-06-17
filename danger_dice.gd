@@ -16,7 +16,7 @@ func _ready() -> void:
 	$Play/VBoxContainer/OptionsButton.pressed.connect(_on_options_button_pressed.bind($Play))
 	$Play/VBoxContainer/QuitToMenuButton.pressed.connect(_on_quit_to_menu_button_pressed)
 	# Buttons on options page
-	$Options/HBoxContainer/VBoxContainerLeft/ReturnButton.pressed.connect(_on_options_return_button_pressed)
+	$Options/HBoxContainer/VBoxContainerRight/ReturnButton.pressed.connect(_on_options_return_button_pressed)
 	# Buttons on accessibility page
 	$Accessibility/VBoxContainer/ReturnButton.pressed.connect(_on_return_to_menu_button_pressed)
 	# Buttons on credits page
@@ -42,7 +42,7 @@ func _on_options_button_pressed(previous_page):
 	previous_page.visible = false
 	_previous_page = previous_page
 	$Options.visible = true
-	$Options/HBoxContainer/VBoxContainerRight/ChooseDangerLabel.grab_focus.call_deferred()
+	$Options/HBoxContainer/VBoxContainerLeft/ChooseDangerLabel.grab_focus.call_deferred()
 
 func _on_accessibility_button_pressed():
 	$TitlePage.visible = false
