@@ -50,7 +50,9 @@ Screenreader Testing: Chad Bouton
 
 Developed in Godot.
 
-This is part of summer research funded by the John S. Rogers Science Research Program at Lewis & Clark College."
+This is part of summer research funded by the John S. Rogers Science Research Program at Lewis & Clark College.
+
+Thanks to the PIGSquad community."
 autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=475116850]
