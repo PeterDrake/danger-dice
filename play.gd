@@ -64,7 +64,7 @@ func _on_hex_button_down(pair: Array) -> void:
 	hexes[current_hex].set_current(false)
 	current_hex = pair
 	hexes[pair].set_current(true)
-	if hexes[pair].current_face == NO_DIE_HERE:
+	if hexes[pair].current_face == NO_DIE_HERE and not dice[current_die_index].disabled:
 		print("Placing die")
 		undo_stack.push_back([hexes[pair], current_die_index])
 		$VBoxContainer2/UndoButton.disabled = false
