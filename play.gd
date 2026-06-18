@@ -51,19 +51,20 @@ func reset_game():
 	$VBoxContainer2/RollDiceButton.disabled = true
 
 func _process(_delta: float) -> void:
-	for d in [1, 2, 3]:
-		if Input.is_action_just_pressed("die" + str(d)):
-			var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
-			var die = get_node("Die" + str(d))
-			if die.disabled:
-				DisplayServer.tts_speak("The die in slot " + str(d) + " has already been placed", voice_id, slider.value * 100)
-			else:
-				DisplayServer.tts_speak("You selected a " + str(die.current_face), voice_id, slider.value * 100)
-			_on_die_button_pressed(die)
-	if grid_mode:
-		for direction in OFFSETS:
-			if Input.is_action_just_pressed(direction):
-				_navigate(direction)
+	if visible:
+		for d in [1, 2, 3]:
+			if Input.is_action_just_pressed("die" + str(d)):
+				var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
+				var die = get_node("Die" + str(d))
+				if die.disabled:
+					DisplayServer.tts_speak("The die in slot " + str(d) + " has already been placed", voice_id, slider.value * 100)
+				else:
+					DisplayServer.tts_speak("You selected a " + str(die.current_face), voice_id, slider.value * 100)
+				_on_die_button_pressed(die)
+		if grid_mode:
+			for direction in OFFSETS:
+				if Input.is_action_just_pressed(direction):
+					_navigate(direction)
 
 func _navigate(direction):
 	var destination = [current_hex[0] + OFFSETS[direction][0], current_hex[1] + OFFSETS[direction][1]]
