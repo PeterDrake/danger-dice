@@ -55,7 +55,10 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("die" + str(d)):
 			var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
 			var die = get_node("Die" + str(d))
-			DisplayServer.tts_speak("You selected a " + str(die.current_face), voice_id, slider.value * 100)
+			if die.disabled:
+				DisplayServer.tts_speak("The die in slot " + str(d) + " has already been placed", voice_id, slider.value * 100)
+			else:
+				DisplayServer.tts_speak("You selected a " + str(die.current_face), voice_id, slider.value * 100)
 			_on_die_button_pressed(die)
 	if grid_mode:
 		for direction in OFFSETS:
