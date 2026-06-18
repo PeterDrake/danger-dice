@@ -31,7 +31,6 @@ focus_neighbor_right = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 focus_next = NodePath("../OptionsButton")
 focus_previous = NodePath("../../Grid/Hex5_5")
-accessibility_name = "How to play"
 theme_override_font_sizes/font_size = 36
 text = "How to Play"
 
@@ -44,7 +43,6 @@ focus_neighbor_right = NodePath("../QuitToMenuButton")
 focus_neighbor_bottom = NodePath("../QuitToMenuButton")
 focus_next = NodePath("../QuitToMenuButton")
 focus_previous = NodePath("../HowToPlayButton")
-accessibility_name = "Options"
 theme_override_font_sizes/font_size = 36
 text = "Options"
 
@@ -57,7 +55,6 @@ focus_neighbor_right = NodePath("../../VBoxContainer2/UndoButton")
 focus_neighbor_bottom = NodePath("../../VBoxContainer2/UndoButton")
 focus_next = NodePath("../../VBoxContainer2/UndoButton")
 focus_previous = NodePath("../OptionsButton")
-accessibility_name = "Quit to menu"
 theme_override_font_sizes/font_size = 36
 text = "Quit to Menu"
 
@@ -81,7 +78,7 @@ focus_neighbor_right = NodePath("../RollDiceButton")
 focus_neighbor_bottom = NodePath("../RollDiceButton")
 focus_next = NodePath("../RollDiceButton")
 focus_previous = NodePath("../../VBoxContainer/QuitToMenuButton")
-accessibility_name = "Undo"
+accessibility_description = "You can only press this if you have placed at least one die since the last roll"
 theme_override_font_sizes/font_size = 36
 text = "Undo"
 
@@ -94,7 +91,7 @@ focus_neighbor_right = NodePath("../../Die1")
 focus_neighbor_bottom = NodePath("../../Die1")
 focus_next = NodePath("../../Die1")
 focus_previous = NodePath("../UndoButton")
-accessibility_name = "Roll dice"
+accessibility_description = "You can only press this if you have placed all three dice from the last roll"
 theme_override_font_sizes/font_size = 36
 text = "Roll Dice"
 

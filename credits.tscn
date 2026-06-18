@@ -61,7 +61,5 @@ focus_neighbor_right = NodePath("../PageTitle")
 focus_neighbor_bottom = NodePath("../PageTitle")
 focus_next = NodePath("../PageTitle")
 focus_previous = NodePath("../PageBody")
-accessibility_name = "Return"
-accessibility_description = "Returns you to previous screen"
 theme_override_font_sizes/font_size = 36
 text = "Return"
