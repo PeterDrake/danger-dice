@@ -39,9 +39,12 @@ func _ready() -> void:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
 	
 func reset_game():
+	for pair in hexes:
+		hexes[pair].set_activated(false)
 	hexes[[3,3]].set_current(true)
 	_on_roll_dice_button_pressed()
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
+	_on_die_button_pressed($Die1)
 	_on_hex_pressed([3, 3])
 	_on_roll_dice_button_pressed()
 	for die in [$Die1, $Die2, $Die3]:
