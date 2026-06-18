@@ -30,7 +30,7 @@ func _ready() -> void:
 func roll():
 	disabled = false
 	current_face = rng.randi_range(1, 6)
-	accessibility_name = str(current_face)
+	#accessibility_name = "Die " + str(current_face)
 	texture_normal = faces[current_face]
 	texture_pressed = pressed_faces[current_face]
 	texture_focused = focused_faces[current_face]
@@ -39,8 +39,11 @@ func roll():
 func _process(_delta: float) -> void:
 	if disabled:
 		texture_focused = disabled_focused
+		accessibility_name = "Die already placed"
 	elif button_pressed:
 		texture_focused = pressed_focused_faces[current_face]
+		accessibility_name = "Selected die showing " + str(current_face)
 	else:
 		texture_focused = focused_faces[current_face]
+		accessibility_name = "Unselected die showing " + str(current_face)
 	texture_hover = texture_focused
