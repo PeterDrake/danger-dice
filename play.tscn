@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckgmklf2iscw2" path="res://play.gd" id="1_yuxfv"]
 [ext_resource type="PackedScene" uid="uid://07216rpl44pm" path="res://hex.tscn" id="2_2jglr"]
+[ext_resource type="Script" uid="uid://dq8narlwut3bf" path="res://grid.gd" id="3_2jglr"]
 [ext_resource type="PackedScene" uid="uid://c4o46i87blyhc" path="res://die.tscn" id="4_2jglr"]
 
 [node name="Play" type="Control" unique_id=535170605]
@@ -165,6 +166,7 @@ focus_next = NodePath("../Die1")
 focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
 focus_mode = 3
 accessibility_name = "Grid of hexes"
+script = ExtResource("3_2jglr")
 metadata/_edit_use_anchors_ = true
 
 [node name="Hex1_1" parent="Grid" unique_id=35864232 instance=ExtResource("2_2jglr")]
