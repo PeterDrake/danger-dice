@@ -7,6 +7,9 @@ var grid_mode := false
 var current_die_index := 1
 var undo_stack := []
 
+var voices := DisplayServer.tts_get_voices_for_language("en")
+var voice_id := voices[40]
+
 const NO_DIE_HERE := 0
 
 signal newly_activated()
@@ -48,6 +51,10 @@ func reset_game():
 	$VBoxContainer2/RollDiceButton.disabled = true
 
 func _process(_delta: float) -> void:
+	for d in [1, 2, 3]:
+		if Input.is_action_just_pressed("die" + str(d)):
+			var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
+			DisplayServer.tts_speak("You selected die " + str(d), voice_id, slider.value * 100)
 	if grid_mode:
 		for direction in OFFSETS:
 			if Input.is_action_just_pressed(direction):
