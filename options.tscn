@@ -250,7 +250,6 @@ focus_neighbor_right = NodePath("../VolumeSlider")
 focus_neighbor_bottom = NodePath("../VolumeSlider")
 focus_next = NodePath("../VolumeSlider")
 focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
-focus_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Volume"
 
