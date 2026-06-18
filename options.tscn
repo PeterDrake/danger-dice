@@ -263,6 +263,7 @@ focus_neighbor_right = NodePath("../../ReturnButton")
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 focus_next = NodePath("../../ReturnButton")
 focus_previous = NodePath("../VolumeLabel")
+accessibility_name = "Volume"
 max_value = 1.0
 step = 0.1
 value = 1.0
