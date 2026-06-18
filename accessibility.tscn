@@ -41,7 +41,7 @@ focus_neighbor_right = NodePath("../ReturnButton")
 focus_neighbor_bottom = NodePath("../ReturnButton")
 focus_next = NodePath("../ReturnButton")
 focus_previous = NodePath("../PageTitle")
-focus_mode = 2
+focus_mode = 3
 theme_override_font_sizes/font_size = 24
 text = "Accessibility is a priority in the development of this game. It should be usable with mouse or keyboard, and by users who are Deaf, colorblind, low vision, or blind and using a screenreader. There is no time pressure or flashing lights.
 
@@ -52,12 +52,6 @@ autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1639100988]
 layout_mode = 2
-focus_neighbor_left = NodePath("../PageBody")
-focus_neighbor_top = NodePath("../PageBody")
-focus_neighbor_right = NodePath("../PageTitle")
-focus_neighbor_bottom = NodePath("../PageTitle")
-focus_next = NodePath("../PageTitle")
-focus_previous = NodePath("../PageBody")
 accessibility_name = "Return"
 accessibility_description = "Returns you to previous screen"
 theme_override_font_sizes/font_size = 36

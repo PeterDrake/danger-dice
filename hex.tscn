@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://07216rpl44pm"]
+
+[ext_resource type="Texture2D" uid="uid://krjiosi7bo5o" path="res://PlaceholderAssets/hex_normal.png" id="1_k1ibq"]
+[ext_resource type="Texture2D" uid="uid://deudd5aflv0fc" path="res://PlaceholderAssets/hex_pressed.png" id="2_ygafg"]
+[ext_resource type="Texture2D" uid="uid://gr7avmwksyxn" path="res://PlaceholderAssets/hex_focused.png" id="3_1dks6"]
+[ext_resource type="Script" uid="uid://b8ajkigwt3et3" path="res://hex.gd" id="4_ygafg"]
+
+[node name="Hex" type="TextureButton" unique_id=35864232]
+anchors_preset = -1
+anchor_right = 0.11100001
+anchor_bottom = 0.19800001
+offset_right = 0.12799072
+offset_bottom = -0.3040161
+texture_normal = ExtResource("1_k1ibq")
+texture_pressed = ExtResource("2_ygafg")
+texture_hover = ExtResource("3_1dks6")
+texture_focused = ExtResource("3_1dks6")
+ignore_texture_size = true
+script = ExtResource("4_ygafg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=930906120]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 114.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 32
+text = "Empty"
+horizontal_alignment = 1

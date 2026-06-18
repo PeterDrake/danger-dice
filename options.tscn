@@ -19,69 +19,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer" unique_id=2123353333]
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=2123353333]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ChooseDangerLabel" type="Label" parent="HBoxContainer/VBoxContainerRight" unique_id=40657493]
+[node name="ChooseDangerLabel" type="Label" parent="HBoxContainer/VBoxContainerLeft" unique_id=40657493]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeLabel")
+focus_neighbor_left = NodePath("../../VBoxContainerRight/VBoxContainerVolume/VolumeLabel")
 focus_neighbor_top = NodePath("../HBoxContainer")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeLabel")
+focus_neighbor_right = NodePath("../../VBoxContainerRight/VBoxContainerVolume/VolumeLabel")
 focus_neighbor_bottom = NodePath("../DefaultDangerButton")
 focus_next = NodePath("../DefaultDangerButton")
-focus_previous = NodePath("../../VBoxContainerLeft/ReturnButton")
+focus_previous = NodePath("../../VBoxContainerRight/ReturnButton")
 focus_mode = 3
 theme_override_font_sizes/font_size = 32
 text = "Choose exactly six dangers"
 horizontal_alignment = 1
 
-[node name="DefaultDangerButton" type="Button" parent="HBoxContainer/VBoxContainerRight" unique_id=1743598909]
+[node name="DefaultDangerButton" type="Button" parent="HBoxContainer/VBoxContainerLeft" unique_id=1743598909]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeSlider")
-focus_neighbor_top = NodePath("../ChooseDangerLabel")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeSlider")
-focus_neighbor_bottom = NodePath("../HBoxContainer")
-focus_next = NodePath("../HBoxContainer")
-focus_previous = NodePath("../ChooseDangerLabel")
-accessibility_description = "Sets the possible dangers to (list defaults)"
+focus_neighbor_left = NodePath("../../VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainerRight/CheckBox9")
+focus_neighbor_right = NodePath("../../VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
+focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainerLeft/CheckBox3")
+focus_next = NodePath("../HBoxContainer/VBoxContainerLeft/CheckBox3")
+focus_previous = NodePath("../../VBoxContainerRight/ReturnButton")
+accessibility_description = "Sets the possible dangers to chainsaw, clown, lava, lightning, rattlesnake, and shark."
 theme_override_font_sizes/font_size = 24
 text = "Default Dangers
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainerRight" unique_id=1309467465]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=1309467465]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../VBoxContainerLeft/ReturnButton")
+focus_neighbor_left = NodePath("../../VBoxContainerRight/ReturnButton")
 focus_neighbor_top = NodePath("../DefaultDangerButton")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/ReturnButton")
+focus_neighbor_right = NodePath("../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../ChooseDangerLabel")
-focus_next = NodePath("../../VBoxContainerLeft/VBoxContainerVolume/VolumeLabel")
+focus_next = NodePath("../../VBoxContainerRight/VBoxContainerVolume/VolumeLabel")
 focus_previous = NodePath("../DefaultDangerButton")
 focus_mode = 2
-accessibility_region = true
 
-[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer/VBoxContainerRight/HBoxContainer" unique_id=1733193169]
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer" unique_id=1733193169]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerLeft" unique_id=1636119246]
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft" unique_id=1636119246]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../VBoxContainerRight/CheckBox")
-focus_neighbor_top = NodePath("../CheckBox4")
+focus_neighbor_left = NodePath("../../../DefaultDangerButton")
+focus_neighbor_top = NodePath("../../../DefaultDangerButton")
 focus_neighbor_right = NodePath("../../VBoxContainerRight/CheckBox")
 focus_neighbor_bottom = NodePath("../CheckBox5")
 focus_next = NodePath("../CheckBox5")
-focus_previous = NodePath("../../VBoxContainerRight/CheckBox9")
+focus_previous = NodePath("../../../DefaultDangerButton")
 theme_override_font_sizes/font_size = 24
 button_pressed = true
 text = "Chainsaw"
 alignment = 1
 
-[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerLeft" unique_id=1765065580]
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft" unique_id=1765065580]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerRight/CheckBox7")
@@ -95,7 +94,7 @@ button_pressed = true
 text = "Clown"
 alignment = 1
 
-[node name="CheckBox10" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerLeft" unique_id=1221020158]
+[node name="CheckBox10" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft" unique_id=1221020158]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerRight/CheckBox2")
@@ -108,7 +107,7 @@ theme_override_font_sizes/font_size = 24
 text = "Dentist"
 alignment = 1
 
-[node name="CheckBox6" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerLeft" unique_id=1805023]
+[node name="CheckBox6" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft" unique_id=1805023]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerRight/CheckBox11")
@@ -122,7 +121,7 @@ button_pressed = true
 text = "Lava"
 alignment = 1
 
-[node name="CheckBox12" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerLeft" unique_id=551532089]
+[node name="CheckBox12" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft" unique_id=551532089]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerRight/CheckBox8")
@@ -136,7 +135,7 @@ button_pressed = true
 text = "Lightning"
 alignment = 1
 
-[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerLeft" unique_id=1608946638]
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft" unique_id=1608946638]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerRight/CheckBox9")
@@ -149,16 +148,16 @@ theme_override_font_sizes/font_size = 24
 text = "Quicksand"
 alignment = 1
 
-[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer/VBoxContainerRight/HBoxContainer" unique_id=1221260667]
+[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer" unique_id=1221260667]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerRight" unique_id=1768318487]
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight" unique_id=1768318487]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerLeft/CheckBox3")
-focus_neighbor_top = NodePath("../CheckBox9")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/CheckBox3")
+focus_neighbor_top = NodePath("../../../DefaultDangerButton")
+focus_neighbor_right = NodePath("../../../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../CheckBox7")
 focus_next = NodePath("../CheckBox7")
 focus_previous = NodePath("../../VBoxContainerLeft/CheckBox4")
@@ -167,12 +166,12 @@ button_pressed = true
 text = "Rattlesnake"
 alignment = 1
 
-[node name="CheckBox7" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerRight" unique_id=1837501176]
+[node name="CheckBox7" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight" unique_id=1837501176]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerLeft/CheckBox5")
 focus_neighbor_top = NodePath("../CheckBox")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/CheckBox5")
+focus_neighbor_right = NodePath("../../../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../CheckBox2")
 focus_next = NodePath("../CheckBox2")
 focus_previous = NodePath("../CheckBox")
@@ -181,12 +180,12 @@ button_pressed = true
 text = "Shark"
 alignment = 1
 
-[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerRight" unique_id=243398375]
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight" unique_id=243398375]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerLeft/CheckBox10")
 focus_neighbor_top = NodePath("../CheckBox7")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/CheckBox10")
+focus_neighbor_right = NodePath("../../../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../CheckBox11")
 focus_next = NodePath("../CheckBox11")
 focus_previous = NodePath("../CheckBox7")
@@ -194,12 +193,12 @@ theme_override_font_sizes/font_size = 24
 text = "Spider"
 alignment = 1
 
-[node name="CheckBox11" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerRight" unique_id=402696705]
+[node name="CheckBox11" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight" unique_id=402696705]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerLeft/CheckBox6")
 focus_neighbor_top = NodePath("../CheckBox2")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/CheckBox6")
+focus_neighbor_right = NodePath("../../../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../CheckBox8")
 focus_next = NodePath("../CheckBox8")
 focus_previous = NodePath("../CheckBox2")
@@ -207,12 +206,12 @@ theme_override_font_sizes/font_size = 24
 text = "Vampire"
 alignment = 1
 
-[node name="CheckBox8" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerRight" unique_id=714226062]
+[node name="CheckBox8" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight" unique_id=714226062]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerLeft/CheckBox12")
 focus_neighbor_top = NodePath("../CheckBox11")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/CheckBox12")
+focus_neighbor_right = NodePath("../../../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../CheckBox9")
 focus_next = NodePath("../CheckBox9")
 focus_previous = NodePath("../CheckBox11")
@@ -220,66 +219,66 @@ theme_override_font_sizes/font_size = 24
 text = "Wasp"
 alignment = 1
 
-[node name="CheckBox9" type="CheckBox" parent="HBoxContainer/VBoxContainerRight/HBoxContainer/VBoxContainerRight" unique_id=717306405]
+[node name="CheckBox9" type="CheckBox" parent="HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight" unique_id=717306405]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainerLeft/CheckBox4")
 focus_neighbor_top = NodePath("../CheckBox8")
-focus_neighbor_right = NodePath("../../VBoxContainerLeft/CheckBox4")
+focus_neighbor_right = NodePath("../../../../VBoxContainerRight/ReturnButton")
 focus_neighbor_bottom = NodePath("../CheckBox")
-focus_next = NodePath("../../VBoxContainerLeft/CheckBox3")
+focus_next = NodePath("../../../../VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
 focus_previous = NodePath("../CheckBox8")
 theme_override_font_sizes/font_size = 24
 text = "Wolf"
 alignment = 1
 
-[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=1526935599]
+[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer" unique_id=1526935599]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainerVolume" type="VBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=133954821]
+[node name="VBoxContainerVolume" type="VBoxContainer" parent="HBoxContainer/VBoxContainerRight" unique_id=133954821]
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="VolumeLabel" type="Label" parent="HBoxContainer/VBoxContainerLeft/VBoxContainerVolume" unique_id=463195605]
+[node name="VolumeLabel" type="Label" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=463195605]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../VBoxContainerRight/ChooseDangerLabel")
+focus_neighbor_left = NodePath("../../../VBoxContainerLeft/ChooseDangerLabel")
 focus_neighbor_top = NodePath("../../ReturnButton")
-focus_neighbor_right = NodePath("../../../VBoxContainerRight/ChooseDangerLabel")
+focus_neighbor_right = NodePath("../../../VBoxContainerLeft/ChooseDangerLabel")
 focus_neighbor_bottom = NodePath("../VolumeSlider")
 focus_next = NodePath("../VolumeSlider")
-focus_previous = NodePath("../../../VBoxContainerRight/HBoxContainer")
+focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer")
 focus_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Volume"
 
-[node name="VolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerLeft/VBoxContainerVolume" unique_id=892049569]
+[node name="VolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=892049569]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../VBoxContainerRight/DefaultDangerButton")
-focus_neighbor_top = NodePath("../VolumeLabel")
-focus_neighbor_right = NodePath("../../../VBoxContainerRight/DefaultDangerButton")
+focus_neighbor_left = NodePath("../../../VBoxContainerLeft/DefaultDangerButton")
+focus_neighbor_top = NodePath("../../ReturnButton")
+focus_neighbor_right = NodePath("../../../VBoxContainerLeft/DefaultDangerButton")
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 focus_next = NodePath("../../ReturnButton")
-focus_previous = NodePath("../VolumeLabel")
+focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
 max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="ReturnButton" type="Button" parent="HBoxContainer/VBoxContainerLeft" unique_id=166376118]
+[node name="ReturnButton" type="Button" parent="HBoxContainer/VBoxContainerRight" unique_id=166376118]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-focus_neighbor_left = NodePath("../../VBoxContainerRight/HBoxContainer")
+focus_neighbor_left = NodePath("../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
 focus_neighbor_top = NodePath("../VBoxContainerVolume/VolumeSlider")
-focus_neighbor_right = NodePath("../../VBoxContainerRight/HBoxContainer")
-focus_neighbor_bottom = NodePath("../VBoxContainerVolume/VolumeLabel")
-focus_next = NodePath("../../VBoxContainerRight/ChooseDangerLabel")
+focus_neighbor_right = NodePath("../../VBoxContainerLeft/HBoxContainer/VBoxContainerLeft/CheckBox4")
+focus_neighbor_bottom = NodePath("../VBoxContainerVolume/VolumeSlider")
+focus_next = NodePath("../../VBoxContainerLeft/DefaultDangerButton")
 focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainerRight/DefaultDangerButton" to="." method="_on_default_danger_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainerLeft/DefaultDangerButton" to="." method="_on_default_danger_button_pressed"]
