@@ -30,7 +30,6 @@ func _ready() -> void:
 func roll():
 	disabled = false
 	current_face = rng.randi_range(1, 6)
-	#accessibility_name = "Die " + str(current_face)
 	texture_normal = faces[current_face]
 	texture_pressed = pressed_faces[current_face]
 	texture_focused = focused_faces[current_face]
