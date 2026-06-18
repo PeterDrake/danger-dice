@@ -22,36 +22,50 @@ layout_mode = 2
 size_flags_vertical = 0
 focus_neighbor_left = NodePath("../ReturnButton")
 focus_neighbor_top = NodePath("../ReturnButton")
-focus_neighbor_right = NodePath("../PageBody")
-focus_neighbor_bottom = NodePath("../PageBody")
-focus_next = NodePath("../PageBody")
+focus_neighbor_right = NodePath("../ControlInstructions")
+focus_neighbor_bottom = NodePath("../ControlInstructions")
+focus_next = NodePath("../ControlInstructions")
 focus_previous = NodePath("../ReturnButton")
 focus_mode = 3
 theme_override_font_sizes/font_size = 72
 text = "How to Play"
 horizontal_alignment = 1
 
-[node name="PageBody" type="Label" parent="VBoxContainer" unique_id=126125753]
+[node name="ControlInstructions" type="Label" parent="VBoxContainer" unique_id=126125753]
 custom_maximum_size = Vector2(1152, -1)
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../PageTitle")
 focus_neighbor_top = NodePath("../PageTitle")
-focus_neighbor_right = NodePath("../ReturnButton")
-focus_neighbor_bottom = NodePath("../ReturnButton")
-focus_next = NodePath("../ReturnButton")
+focus_neighbor_right = NodePath("../GameInstructions")
+focus_neighbor_bottom = NodePath("../GameInstructions")
+focus_next = NodePath("../GameInstructions")
 focus_previous = NodePath("../PageTitle")
 focus_mode = 3
 theme_override_font_sizes/font_size = 18
-text = "Mouse controls: Click on a rolled die, then click on an empty hex to place it.
-Keyboard controls: Navigate with arrow keys, tab / shift-tab, or your screenreader. Space presses buttons.
+text = "Keyboard controls: Navigate with arrow keys, tab / shift-tab, or your screenreader. Space presses buttons. Q, W, E, A, S, and D allow you to move in six directions within the grid.
 Not implemented yet: Press 1, 2, or 3 to select a rolled die. Press backspace to undo a die placement. After you've place all three dice, press enter to roll the next set of dice.
+Mouse controls: Click on a rolled die, then click on an empty hex to place it.
+"
+autowrap_mode = 2
 
-Danger Dice is a dice placement game. You will be placing dice into a grid of hexagons. Each die face represents a different danger, like a shark or quicksand. You can choose what the dangers are on the Options page.
+[node name="GameInstructions" type="Label" parent="VBoxContainer" unique_id=1663747750]
+custom_maximum_size = Vector2(1152, -1)
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../ControlInstructions")
+focus_neighbor_top = NodePath("../ControlInstructions")
+focus_neighbor_right = NodePath("../ReturnButton")
+focus_neighbor_bottom = NodePath("../ReturnButton")
+focus_next = NodePath("../ReturnButton")
+focus_previous = NodePath("../ControlInstructions")
+focus_mode = 3
+theme_override_font_sizes/font_size = 18
+text = "Danger Dice is a dice placement game. You will be placing dice into a grid of hexagons. Each die face represents a different danger, like a shark or quicksand. You can choose what the dangers are on the Options page.
 
-One die is rolled and placed in the center hex at the beginning of the game. After that, you will repeatedly roll three dice and place them onto empty hexes.
+One die is rolled and placed in the center hex at the beginning of the game. Three dice are rolled and you can place them into empty hexes. After you place all three dice, you can roll three more.
 
-If you ever place a die next to another die showing the same face, you die! Your score is how many dice you place before this happens.
+If you ever place a die next to another die showing the same face, you lose! Your score is how many dice you place before this happens.
 
 If you fill up the entire grid, you win!
 "
@@ -59,12 +73,12 @@ autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1218253312]
 layout_mode = 2
-focus_neighbor_left = NodePath("../PageBody")
-focus_neighbor_top = NodePath("../PageBody")
+focus_neighbor_left = NodePath("../GameInstructions")
+focus_neighbor_top = NodePath("../GameInstructions")
 focus_neighbor_right = NodePath("../PageTitle")
 focus_neighbor_bottom = NodePath("../PageTitle")
 focus_next = NodePath("../PageTitle")
-focus_previous = NodePath("../PageBody")
+focus_previous = NodePath("../GameInstructions")
 accessibility_name = "Return"
 accessibility_description = "Returns you to previous screen"
 theme_override_font_sizes/font_size = 36
