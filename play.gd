@@ -103,7 +103,7 @@ func check_for_loss(pair):
 		if neighbor in hexes:
 			var face = dice[current_die_index].current_face
 			if hexes[neighbor].current_face == face:
-				speak("You were killed by " + danger_names[face])
+				speak("You were killed by " + danger_names[face] + ". Your score is " + str(score))
 
 func speak(text):
 	var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
