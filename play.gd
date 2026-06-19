@@ -7,6 +7,9 @@ var grid_mode := false
 var current_die_index := 1
 var undo_stack := []
 
+var voices := DisplayServer.tts_get_voices_for_language("en")
+var voice_id := voices[40]
+
 const NO_DIE_HERE := 0
 
 signal newly_activated()
@@ -31,13 +34,17 @@ func _ready() -> void:
 		hexes[pair].pressed.connect(_on_hex_pressed.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
 		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
+		hexes[pair].accessibility_description = "Row " + str(pair[0]) + " column " + str(pair[1])
 	for die in dice:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
 	
 func reset_game():
+	for pair in hexes:
+		hexes[pair].set_activated(false)
 	hexes[[3,3]].set_current(true)
 	_on_roll_dice_button_pressed()
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
+	_on_die_button_pressed($Die1)
 	_on_hex_pressed([3, 3])
 	_on_roll_dice_button_pressed()
 	for die in [$Die1, $Die2, $Die3]:
@@ -47,10 +54,20 @@ func reset_game():
 	$VBoxContainer2/RollDiceButton.disabled = true
 
 func _process(_delta: float) -> void:
-	if grid_mode:
-		for direction in OFFSETS:
-			if Input.is_action_just_pressed(direction):
-				_navigate(direction)
+	if visible:
+		for d in [1, 2, 3]:
+			if Input.is_action_just_pressed("die" + str(d)):
+				var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
+				var die = get_node("Die" + str(d))
+				if die.disabled:
+					DisplayServer.tts_speak("The die in slot " + str(d) + " has already been placed", voice_id, slider.value * 100)
+				else:
+					DisplayServer.tts_speak("You selected a " + str(die.current_face), voice_id, slider.value * 100)
+				_on_die_button_pressed(die)
+		if grid_mode:
+			for direction in OFFSETS:
+				if Input.is_action_just_pressed(direction):
+					_navigate(direction)
 
 func _navigate(direction):
 	var destination = [current_hex[0] + OFFSETS[direction][0], current_hex[1] + OFFSETS[direction][1]]

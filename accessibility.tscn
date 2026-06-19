@@ -52,7 +52,11 @@ autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1639100988]
 layout_mode = 2
-accessibility_name = "Return"
-accessibility_description = "Returns you to previous screen"
+focus_neighbor_left = NodePath("../PageBody")
+focus_neighbor_top = NodePath("../PageBody")
+focus_neighbor_right = NodePath("../PageTitle")
+focus_neighbor_bottom = NodePath("../PageTitle")
+focus_next = NodePath("../PageTitle")
+focus_previous = NodePath("../PageBody")
 theme_override_font_sizes/font_size = 36
 text = "Return"

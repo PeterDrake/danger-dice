@@ -48,14 +48,20 @@ Programming: Peter Drake and Saph Leeper
 Art: Saph Leeper
 Screenreader Testing: Chad Bouton
 
+Thanks to the PIGSquad, Games for Blind Gamers, and Godot communities.
+
 Developed in Godot.
 
-This is part of summer research funded by the John S. Rogers Science Research Program at Lewis & Clark College."
+This is part of summer research funded by the John S. Rogers Science Research Program at Lewis & Clark College. It was part of the June 2026 PIGSquad Summer Slow Jam."
 autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=475116850]
 layout_mode = 2
-accessibility_name = "Return"
-accessibility_description = "Returns you to previous screen"
+focus_neighbor_left = NodePath("../PageBody")
+focus_neighbor_top = NodePath("../PageBody")
+focus_neighbor_right = NodePath("../PageTitle")
+focus_neighbor_bottom = NodePath("../PageTitle")
+focus_next = NodePath("../PageTitle")
+focus_previous = NodePath("../PageBody")
 theme_override_font_sizes/font_size = 36
 text = "Return"
