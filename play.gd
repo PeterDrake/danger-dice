@@ -10,6 +10,7 @@ var score: int
 var danger_names := {1:"Chainsaw", 2:"Clown", 3:"Lava", 4:"Lightning", 5:"Rattlesnake", 6:"Shark"}
 var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
+var game_over: bool
 
 const NO_DIE_HERE := 0
 
@@ -54,25 +55,28 @@ func reset_game():
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
 	score = 1
+	game_over = false
 
 func _process(_delta: float) -> void:
 	if visible:
-		if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
-			_on_undo_button_pressed()
-		if Input.is_action_just_pressed("roll_dice") and not $VBoxContainer2/RollDiceButton.disabled:
-			_on_roll_dice_button_pressed()
-		for d in [1, 2, 3]:
-			if Input.is_action_just_pressed("die" + str(d)):
-				var die = get_node("Die" + str(d))
-				if die.disabled:
-					speak("The die in slot " + str(d) + " has already been placed")
-				else:
-					speak("You selected a " + danger_names[die.current_face])
-				_on_die_button_pressed(die)
 		if grid_mode:
 			for direction in OFFSETS:
 				if Input.is_action_just_pressed(direction):
 					_navigate(direction)
+		if not game_over:
+			if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
+				_on_undo_button_pressed()
+			if Input.is_action_just_pressed("roll_dice") and not $VBoxContainer2/RollDiceButton.disabled:
+				_on_roll_dice_button_pressed()
+			for d in [1, 2, 3]:
+				if Input.is_action_just_pressed("die" + str(d)):
+					var die = get_node("Die" + str(d))
+					if die.disabled:
+						speak("The die in slot " + str(d) + " has already been placed")
+					else:
+						speak("You selected a " + danger_names[die.current_face])
+					_on_die_button_pressed(die)
+
 
 func _navigate(direction):
 	var destination = [current_hex[0] + OFFSETS[direction][0], current_hex[1] + OFFSETS[direction][1]]
@@ -87,19 +91,20 @@ func _on_hex_pressed(pair: Array) -> void:
 	current_hex = pair
 	hexes[pair].set_current(true)
 	if hexes[pair].current_face == NO_DIE_HERE and not dice[current_die_index].disabled:
-		check_for_loss(pair)
-		undo_stack.push_back([hexes[pair], current_die_index])
-		$VBoxContainer2/UndoButton.disabled = false
-		if len(undo_stack) == 3:
-			$VBoxContainer2/RollDiceButton.disabled = false
-		hexes[pair].set_activated(true)
-		dice[current_die_index].disabled = true
-		hexes[pair].set_value(dice[current_die_index].current_face)
-		score += 1
-		if score == 19:
-			speak("Victory! You placed all 19 dice. Congratulations")
+		if not has_lost(pair):
+			undo_stack.push_back([hexes[pair], current_die_index])
+			$VBoxContainer2/UndoButton.disabled = false
+			if len(undo_stack) == 3:
+				$VBoxContainer2/RollDiceButton.disabled = false
+			hexes[pair].set_activated(true)
+			dice[current_die_index].disabled = true
+			hexes[pair].set_value(dice[current_die_index].current_face)
+			score += 1
+			if score == 19:
+				speak("Victory! You placed all 19 dice. Congratulations. To play again, quit to the main menu.")
+				end_game()
 
-func check_for_loss(pair):
+func has_lost(pair) -> bool:
 	for offset in OFFSETS.values():
 		var neighbor = pair.duplicate()
 		neighbor[0] += offset[0]
@@ -107,8 +112,18 @@ func check_for_loss(pair):
 		if neighbor in hexes:
 			var face = dice[current_die_index].current_face
 			if hexes[neighbor].current_face == face:
-				speak("You were killed by " + danger_names[face] + ". Your score is " + str(score))
+				speak("You were killed by " + danger_names[face] + ". Your score is " + str(score) + ". To play again, quit to the main menu.")
+				end_game()
+				return true
+	return false
 
+
+func end_game():
+	print("Ending game")
+	game_over = true
+	$VBoxContainer2/UndoButton.disabled = true
+	$VBoxContainer2/RollDiceButton.disabled = true
+	
 func speak(text):
 	var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
 	DisplayServer.tts_speak(text, voice_id, slider.value * 100)
