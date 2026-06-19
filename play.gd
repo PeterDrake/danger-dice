@@ -152,3 +152,7 @@ func _on_undo_button_pressed() -> void:
 	score -= 1
 	if not undo_stack:
 		$VBoxContainer2/UndoButton.disabled = true
+
+func update_dangers():
+	for hex in hexes.values():
+		hex.set_value(hex.current_face)  # To update name on label

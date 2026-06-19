@@ -62,3 +62,4 @@ func update_dangers():
 		if d.button_pressed:
 			danger_names[i] = d.text
 			i += 1
+	get_node("../Play").update_dangers()
