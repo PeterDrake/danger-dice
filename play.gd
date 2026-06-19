@@ -49,7 +49,7 @@ func reset_game():
 	_on_die_button_pressed($Die1)
 	_on_hex_pressed([3, 3])
 	_on_roll_dice_button_pressed()
-	for die in [$Die1, $Die2, $Die3]:
+	for die in dice.values():
 		die.disabled = false
 	_clear_undo_stack()
 	$VBoxContainer2/UndoButton.disabled = true
@@ -124,6 +124,8 @@ func end_game():
 	game_over = true
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
+	for die in dice.values():
+		die.disabled = true
 	
 func speak(text):
 	var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
