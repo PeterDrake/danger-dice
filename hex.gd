@@ -35,8 +35,9 @@ func set_current(value: bool):
 	_current = value
 
 func set_value(value: int):
+	var danger_names = get_node("../..").danger_names
 	current_face = value
 	if value == NO_DIE_HERE:
 		$Label.text = "Empty"
 	else:
-		$Label.text = str(value)
+		$Label.text = danger_names[value]

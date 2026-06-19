@@ -6,7 +6,7 @@ var current_hex := [3,3]
 var grid_mode := false
 var current_die_index := 1
 var undo_stack := []
-
+var danger_names := {1:"chainsaw", 2:"clown", 3:"lava", 4:"lightning", 5:"rattle\nsnake", 6:"shark"}
 var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
 
@@ -62,7 +62,7 @@ func _process(_delta: float) -> void:
 				if die.disabled:
 					DisplayServer.tts_speak("The die in slot " + str(d) + " has already been placed", voice_id, slider.value * 100)
 				else:
-					DisplayServer.tts_speak("You selected a " + str(die.current_face), voice_id, slider.value * 100)
+					DisplayServer.tts_speak("You selected a " + danger_names[die.current_face], voice_id, slider.value * 100)
 				_on_die_button_pressed(die)
 		if grid_mode:
 			for direction in OFFSETS:
