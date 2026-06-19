@@ -59,6 +59,8 @@ func _process(_delta: float) -> void:
 	if visible:
 		if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
 			_on_undo_button_pressed()
+		if Input.is_action_just_pressed("roll_dice") and not $VBoxContainer2/RollDiceButton.disabled:
+			_on_roll_dice_button_pressed()
 		for d in [1, 2, 3]:
 			if Input.is_action_just_pressed("die" + str(d)):
 				var die = get_node("Die" + str(d))
@@ -113,6 +115,7 @@ func speak(text):
 	
 func _clear_undo_stack():
 	undo_stack = []
+	$VBoxContainer2/UndoButton.disabled = true
 
 func _on_hex_focus_entered():
 	grid_mode = true
@@ -131,7 +134,7 @@ func _on_hex_newly_activated():
 	emit_signal("newly_activated")
 
 func _on_roll_dice_button_pressed() -> void:
-	undo_stack = []
+	_clear_undo_stack()
 	for die in [$Die1, $Die2, $Die3]:
 		die.roll()
 
