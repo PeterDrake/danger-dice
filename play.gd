@@ -57,7 +57,6 @@ func reset_game():
 	$VBoxContainer2/RollDiceButton.disabled = true
 	score = 1
 
-
 func _process(_delta: float) -> void:
 	if visible:
 		if grid_mode:
