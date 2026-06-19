@@ -7,7 +7,7 @@ var grid_mode := false
 var current_die_index := 1
 var undo_stack := []
 var score: int
-var danger_names := {1:"chainsaw", 2:"clown", 3:"lava", 4:"lightning", 5:"rattle\nsnake", 6:"shark"}
+var danger_names := {1:"Chainsaw", 2:"Clown", 3:"Lava", 4:"Lightning", 5:"Rattlesnake", 6:"Shark"}
 var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
 
@@ -59,12 +59,11 @@ func _process(_delta: float) -> void:
 	if visible:
 		for d in [1, 2, 3]:
 			if Input.is_action_just_pressed("die" + str(d)):
-				var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
 				var die = get_node("Die" + str(d))
 				if die.disabled:
-					DisplayServer.tts_speak("The die in slot " + str(d) + " has already been placed", voice_id, slider.value * 100)
+					speak("The die in slot " + str(d) + " has already been placed")
 				else:
-					DisplayServer.tts_speak("You selected a " + danger_names[die.current_face], voice_id, slider.value * 100)
+					speak("You selected a " + danger_names[die.current_face])
 				_on_die_button_pressed(die)
 		if grid_mode:
 			for direction in OFFSETS:
@@ -93,9 +92,8 @@ func _on_hex_pressed(pair: Array) -> void:
 		dice[current_die_index].disabled = true
 		hexes[pair].set_value(dice[current_die_index].current_face)
 		score += 1
-		var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
 		if score == 19:
-			DisplayServer.tts_speak("Victory! You placed all 19 dice. Congratulations", voice_id, slider.value * 100)
+			speak("Victory! You placed all 19 dice. Congratulations")
 
 func check_for_loss(pair):
 	for offset in OFFSETS.values():
@@ -103,8 +101,13 @@ func check_for_loss(pair):
 		neighbor[0] += offset[0]
 		neighbor[1] += offset[1]
 		if neighbor in hexes:
-			if hexes[neighbor].current_face == dice[current_die_index].current_face:
-				print("You died!")
+			var face = dice[current_die_index].current_face
+			if hexes[neighbor].current_face == face:
+				speak("You were killed by " + danger_names[face])
+
+func speak(text):
+	var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
+	DisplayServer.tts_speak(text, voice_id, slider.value * 100)
 	
 func _clear_undo_stack():
 	undo_stack = []
