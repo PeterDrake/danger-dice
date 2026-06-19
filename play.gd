@@ -92,8 +92,9 @@ func _on_hex_pressed(pair: Array) -> void:
 		dice[current_die_index].disabled = true
 		hexes[pair].set_value(dice[current_die_index].current_face)
 		score += 1
+		var slider = get_node("../Options/HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider")
 		if score == 19:
-			print("Victory!")
+			DisplayServer.tts_speak("Victory! You placed all 19 dice. Congratulations", voice_id, slider.value * 100)
 
 func _clear_undo_stack():
 	undo_stack = []
