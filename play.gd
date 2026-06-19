@@ -92,14 +92,14 @@ func _on_hex_pressed(pair: Array) -> void:
 		current_hex = pair
 		hexes[pair].set_current(true)
 		if hexes[pair].current_face == NO_DIE_HERE and not dice[current_die_index].disabled:
+			undo_stack.push_back([hexes[pair], current_die_index])
+			if len(undo_stack) == 3:
+				$VBoxContainer2/RollDiceButton.disabled = false
+			hexes[pair].set_activated(true)
+			dice[current_die_index].disabled = true
+			hexes[pair].set_value(dice[current_die_index].current_face)
 			if not has_lost(pair):
-				undo_stack.push_back([hexes[pair], current_die_index])
 				$VBoxContainer2/UndoButton.disabled = false
-				if len(undo_stack) == 3:
-					$VBoxContainer2/RollDiceButton.disabled = false
-				hexes[pair].set_activated(true)
-				dice[current_die_index].disabled = true
-				hexes[pair].set_value(dice[current_die_index].current_face)
 				score += 1
 				if score == 19:
 					speak("Victory! You placed all 19 dice. Congratulations. To play again, quit to the main menu.")
