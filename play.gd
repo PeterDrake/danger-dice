@@ -41,21 +41,22 @@ func _ready() -> void:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
 	
 func reset_game():
+	game_over = false
 	for pair in hexes:
 		hexes[pair].set_activated(false)
 	hexes[[3,3]].set_current(true)
 	_on_roll_dice_button_pressed()
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
+	for die in dice.values():
+		die.disabled = false
 	_on_die_button_pressed($Die1)
 	_on_hex_pressed([3, 3])
 	_on_roll_dice_button_pressed()
-	for die in dice.values():
-		die.disabled = false
 	_clear_undo_stack()
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
 	score = 1
-	game_over = false
+
 
 func _process(_delta: float) -> void:
 	if visible:
@@ -118,9 +119,7 @@ func has_lost(pair) -> bool:
 				return true
 	return false
 
-
 func end_game():
-	print("Ending game")
 	game_over = true
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
