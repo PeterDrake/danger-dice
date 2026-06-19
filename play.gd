@@ -6,6 +6,7 @@ var current_hex := [3,3]
 var grid_mode := false
 var current_die_index := 1
 var undo_stack := []
+var score: int
 var danger_names := {1:"chainsaw", 2:"clown", 3:"lava", 4:"lightning", 5:"rattle\nsnake", 6:"shark"}
 var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
@@ -52,6 +53,7 @@ func reset_game():
 	_clear_undo_stack()
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
+	score = 1
 
 func _process(_delta: float) -> void:
 	if visible:
@@ -89,6 +91,9 @@ func _on_hex_pressed(pair: Array) -> void:
 		hexes[pair].set_activated(true)
 		dice[current_die_index].disabled = true
 		hexes[pair].set_value(dice[current_die_index].current_face)
+		score += 1
+		if score == 19:
+			print("Victory!")
 
 func _clear_undo_stack():
 	undo_stack = []
@@ -130,5 +135,6 @@ func _on_undo_button_pressed() -> void:
 	hex.set_activated(false)
 	hex.set_value(NO_DIE_HERE)
 	$VBoxContainer2/RollDiceButton.disabled = true
+	score -= 1
 	if not undo_stack:
 		$VBoxContainer2/UndoButton.disabled = true
