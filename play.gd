@@ -57,6 +57,8 @@ func reset_game():
 
 func _process(_delta: float) -> void:
 	if visible:
+		if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
+			_on_undo_button_pressed()
 		for d in [1, 2, 3]:
 			if Input.is_action_just_pressed("die" + str(d)):
 				var die = get_node("Die" + str(d))
