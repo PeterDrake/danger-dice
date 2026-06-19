@@ -84,6 +84,7 @@ func _on_hex_pressed(pair: Array) -> void:
 	current_hex = pair
 	hexes[pair].set_current(true)
 	if hexes[pair].current_face == NO_DIE_HERE and not dice[current_die_index].disabled:
+		check_for_loss(pair)
 		undo_stack.push_back([hexes[pair], current_die_index])
 		$VBoxContainer2/UndoButton.disabled = false
 		if len(undo_stack) == 3:
@@ -96,6 +97,15 @@ func _on_hex_pressed(pair: Array) -> void:
 		if score == 19:
 			DisplayServer.tts_speak("Victory! You placed all 19 dice. Congratulations", voice_id, slider.value * 100)
 
+func check_for_loss(pair):
+	for offset in OFFSETS.values():
+		var neighbor = pair.duplicate()
+		neighbor[0] += offset[0]
+		neighbor[1] += offset[1]
+		if neighbor in hexes:
+			if hexes[neighbor].current_face == dice[current_die_index].current_face:
+				print("You died!")
+	
 func _clear_undo_stack():
 	undo_stack = []
 
