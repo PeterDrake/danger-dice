@@ -80,6 +80,7 @@ func _on_quit_to_menu_button_pressed():
 
 func _on_options_return_button_pressed():
 	$Options.visible = false
+	$Options.update_dangers()
 	_previous_page.visible = true
 	if _previous_page == $TitlePage:
 		if get_tree().is_accessibility_enabled():

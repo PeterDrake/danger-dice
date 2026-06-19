@@ -54,3 +54,11 @@ func _on_danger_checkbox_toggled(state: bool):
 	else:
 		_danger_count -= 1
 	$HBoxContainer/VBoxContainerRight/ReturnButton.disabled = (_danger_count != 6)
+
+func update_dangers():
+	var danger_names = get_node("../Play").danger_names
+	var i = 1
+	for d in dangers:
+		if d.button_pressed:
+			danger_names[i] = d.text
+			i += 1
