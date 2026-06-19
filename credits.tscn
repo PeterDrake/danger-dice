@@ -48,9 +48,11 @@ Programming: Peter Drake and Saph Leeper
 Art: Saph Leeper
 Screenreader Testing: Chad Bouton
 
+Thanks to the PIGSquad, Games for Blind Gamers, and Godot communities.
+
 Developed in Godot.
 
-This is part of summer research funded by the John S. Rogers Science Research Program at Lewis & Clark College."
+This is part of summer research funded by the John S. Rogers Science Research Program at Lewis & Clark College. It was part of the June 2026 PIGSquad Summer Slow Jam."
 autowrap_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=475116850]
