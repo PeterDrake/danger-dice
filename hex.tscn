@@ -20,6 +20,7 @@ script = ExtResource("4_ygafg")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=930906120]
+visible = false
 layout_mode = 0
 offset_left = -24.0
 offset_top = 16.0
