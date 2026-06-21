@@ -25,7 +25,8 @@ func _ready() -> void:
 		"Spider":      load("res://Assets/hex_pressed_focused/hex_pressed_focused_spider.png"),
 		"Vampire":     load("res://Assets/hex_pressed_focused/hex_pressed_focused_vampire.png"),
 		"Wasp":        load("res://Assets/hex_pressed_focused/hex_pressed_focused_wasp.png"),
-		"Wolf":        load("res://Assets/hex_pressed_focused/hex_pressed_focused_wolf.png")}
+		"Wolf":        load("res://Assets/hex_pressed_focused/hex_pressed_focused_wolf.png")
+	}
 	pressed_unfocused = {
 		"Chainsaw":    load("res://Assets/hex_pressed/hex_pressed_chainsaw.png"),
 		"Clown":       load("res://Assets/hex_pressed/hex_pressed_clown.png"),
@@ -38,7 +39,8 @@ func _ready() -> void:
 		"Spider":      load("res://Assets/hex_pressed/hex_pressed_spider.png"),
 		"Vampire":     load("res://Assets/hex_pressed/hex_pressed_vampire.png"),
 		"Wasp":        load("res://Assets/hex_pressed/hex_pressed_wasp.png"),
-		"Wolf":        load("res://Assets/hex_pressed/hex_pressed_wolf.png")}
+		"Wolf":        load("res://Assets/hex_pressed/hex_pressed_wolf.png")
+	}
 	var image = texture_normal.get_image()
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(image)

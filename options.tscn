@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://buk3j8sn48smg"]
 
 [ext_resource type="Script" uid="uid://bhue8bad3msav" path="res://options.gd" id="1_se8ut"]
+[ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="2_se8ut"]
 
 [node name="Options" type="Control" unique_id=314918461]
 layout_mode = 3
@@ -10,6 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_se8ut")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=411452746]
+position = Vector2(576, 324)
+texture = ExtResource("2_se8ut")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1499690826]
 layout_mode = 1

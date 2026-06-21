@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3585mdgse1bl" path="res://title_page.tscn" id="1_eudhu"]
 [ext_resource type="PackedScene" uid="uid://1wmo25bs8bnb" path="res://play.tscn" id="1_t44fg"]
+[ext_resource type="Theme" uid="uid://biqimwexpidt2" path="res://dd_theme.tres" id="1_w40iv"]
 [ext_resource type="Script" uid="uid://cqp4ncr6jk2fb" path="res://danger_dice.gd" id="1_ytlbn"]
 [ext_resource type="PackedScene" uid="uid://buk3j8sn48smg" path="res://options.tscn" id="2_n5ffe"]
 [ext_resource type="PackedScene" uid="uid://dj35lbpkmm4s4" path="res://accessibility.tscn" id="3_eudhu"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_w40iv")
 script = ExtResource("1_ytlbn")
 
 [node name="TitlePage" parent="." unique_id=2084414339 instance=ExtResource("1_eudhu")]
