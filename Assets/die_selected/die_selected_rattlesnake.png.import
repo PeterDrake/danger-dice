@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqtf5cltmn05w"
-path="res://.godot/imported/die_focused_wasp.png-f4c05d4abb53936d50b58f96ff3b83bb.ctex"
+uid="uid://b240yvf2cfxxy"
+path="res://.godot/imported/die_selected_rattlesnake.png-cb9e5938b05fcc7ed38f2a5619cd31a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_wasp.png"
-dest_files=["res://.godot/imported/die_focused_wasp.png-f4c05d4abb53936d50b58f96ff3b83bb.ctex"]
+source_file="res://Assets/die_selected/die_selected_rattlesnake.png"
+dest_files=["res://.godot/imported/die_selected_rattlesnake.png-cb9e5938b05fcc7ed38f2a5619cd31a5.ctex"]
 
 [params]
 

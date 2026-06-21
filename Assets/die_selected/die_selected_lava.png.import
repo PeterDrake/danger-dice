@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://okg3telkbnx5"
-path="res://.godot/imported/die_focused_vampire.png-5ad7bab06162077b8ee8b01c34472f6c.ctex"
+uid="uid://b74e6rn4nmapf"
+path="res://.godot/imported/die_selected_lava.png-44bf987a99e3e8ef3e391914e7af5007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_vampire.png"
-dest_files=["res://.godot/imported/die_focused_vampire.png-5ad7bab06162077b8ee8b01c34472f6c.ctex"]
+source_file="res://Assets/die_selected/die_selected_lava.png"
+dest_files=["res://.godot/imported/die_selected_lava.png-44bf987a99e3e8ef3e391914e7af5007.ctex"]
 
 [params]
 

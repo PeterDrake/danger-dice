@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b74e6rn4nmapf"
-path="res://.godot/imported/die_focused_lava.png-a0298a4183f9d5f066fa60a7bc21a255.ctex"
+uid="uid://cchu6x65xr806"
+path="res://.godot/imported/die_disabled_focused.png-68aae0fbc79ccbcdaca54ac10fe5e533.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_lava.png"
-dest_files=["res://.godot/imported/die_focused_lava.png-a0298a4183f9d5f066fa60a7bc21a255.ctex"]
+source_file="res://Assets/die_disabled_focused.png"
+dest_files=["res://.godot/imported/die_disabled_focused.png-68aae0fbc79ccbcdaca54ac10fe5e533.ctex"]
 
 [params]
 

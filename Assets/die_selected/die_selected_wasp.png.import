@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dywj45nnof6ue"
-path="res://.godot/imported/die_focused_shark.png-ce70e45ffd6ba3d1b6aa7bf62e4646c4.ctex"
+uid="uid://bqtf5cltmn05w"
+path="res://.godot/imported/die_selected_wasp.png-8ea41a5ff747a869a033b81429638ffa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_shark.png"
-dest_files=["res://.godot/imported/die_focused_shark.png-ce70e45ffd6ba3d1b6aa7bf62e4646c4.ctex"]
+source_file="res://Assets/die_selected/die_selected_wasp.png"
+dest_files=["res://.godot/imported/die_selected_wasp.png-8ea41a5ff747a869a033b81429638ffa.ctex"]
 
 [params]
 

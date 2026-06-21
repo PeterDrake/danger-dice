@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brly0scqp7bn0"
-path="res://.godot/imported/die_focused_spider.png-b8c5c6756812102bbebe7e96a9a94058.ctex"
+uid="uid://okg3telkbnx5"
+path="res://.godot/imported/die_selected_vampire.png-3370773a491bb445688b72391377b904.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_spider.png"
-dest_files=["res://.godot/imported/die_focused_spider.png-b8c5c6756812102bbebe7e96a9a94058.ctex"]
+source_file="res://Assets/die_selected/die_selected_vampire.png"
+dest_files=["res://.godot/imported/die_selected_vampire.png-3370773a491bb445688b72391377b904.ctex"]
 
 [params]
 

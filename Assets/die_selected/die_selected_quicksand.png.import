@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxafm6cpu1gwd"
-path="res://.godot/imported/die_focused_wolf.png-69458832eb51094b57e08bd806bd043a.ctex"
+uid="uid://c7vu8oc27uqqj"
+path="res://.godot/imported/die_selected_quicksand.png-3b4f580750147663660a0f02e4a2d73f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_wolf.png"
-dest_files=["res://.godot/imported/die_focused_wolf.png-69458832eb51094b57e08bd806bd043a.ctex"]
+source_file="res://Assets/die_selected/die_selected_quicksand.png"
+dest_files=["res://.godot/imported/die_selected_quicksand.png-3b4f580750147663660a0f02e4a2d73f.ctex"]
 
 [params]
 

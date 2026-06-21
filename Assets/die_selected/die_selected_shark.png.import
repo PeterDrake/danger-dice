@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g3qotsu4kh24"
-path="res://.godot/imported/die_focused_chainsaw.png-f79c3bfd056d66ffb721e00dae7f0efe.ctex"
+uid="uid://dywj45nnof6ue"
+path="res://.godot/imported/die_selected_shark.png-0805fa823f23b2862a14c88ae5655787.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_chainsaw.png"
-dest_files=["res://.godot/imported/die_focused_chainsaw.png-f79c3bfd056d66ffb721e00dae7f0efe.ctex"]
+source_file="res://Assets/die_selected/die_selected_shark.png"
+dest_files=["res://.godot/imported/die_selected_shark.png-0805fa823f23b2862a14c88ae5655787.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://carlvgymdqpoi"
-path="res://.godot/imported/die_focused_dentist.png-7bc5e0cb20d63a9e9b141a445fd43502.ctex"
+uid="uid://g3qotsu4kh24"
+path="res://.godot/imported/die_selected_chainsaw.png-ffb3054fd0961d2ae34e63d6eb90b043.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/die_selected/die_focused_dentist.png"
-dest_files=["res://.godot/imported/die_focused_dentist.png-7bc5e0cb20d63a9e9b141a445fd43502.ctex"]
+source_file="res://Assets/die_selected/die_selected_chainsaw.png"
+dest_files=["res://.godot/imported/die_selected_chainsaw.png-ffb3054fd0961d2ae34e63d6eb90b043.ctex"]
 
 [params]
 
