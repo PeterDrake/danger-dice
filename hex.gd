@@ -4,8 +4,8 @@ const NO_DIE_HERE := 0
 
 var _current: bool
 var _activated: bool
-var original_normal := load("res://PlaceholderAssets/hex_normal.png")
-var original_focused := load("res://PlaceholderAssets/hex_focused.png")
+var original_normal := load("res://Assets/hex_normal.png")
+var original_focused := load("res://Assets/hex_focused.png")
 var pressed_focused := load("res://PlaceholderAssets/hex_pressed_focused.png")
 var current_face := NO_DIE_HERE
 
