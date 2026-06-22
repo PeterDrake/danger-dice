@@ -41,3 +41,6 @@ layout_mode = 1
 [node name="Credits" parent="." unique_id=98161517 instance=ExtResource("4_ytlbn")]
 visible = false
 layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1084039485]
+playback_type = 1
