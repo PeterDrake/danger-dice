@@ -9,7 +9,7 @@ var undo_stack := []
 var score: int
 var danger_names := {1:"Chainsaw", 2:"Clown", 3:"Lava", 4:"Lightning", 5:"Rattlesnake", 6:"Shark"}
 var voices := DisplayServer.tts_get_voices_for_language("en")
-var voice_id := voices[40]
+var voice_id := voices[0]
 var game_over: bool
 
 var sound_invalid_action = load("res://Audio/invalid_action.mp3")
