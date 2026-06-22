@@ -58,16 +58,22 @@ func set_current(value: bool):
 
 func set_value(value: int):
 	current_face = value
+	var face_name
 	if value == NO_DIE_HERE:
 		texture_normal = original_normal
 		texture_focused = original_focused
+		face_name = "empty"
 	else:
 		var danger_names = get_node("../..").danger_names
+		face_name = danger_names[value]
 		if get_node("../..").visible:
 			var player = get_node("../../AudioStreamPlayer")
-			player.stream = get_node("../../../Options").danger_sounds[danger_names[value]]
+			player.stream = get_node("../../../Options").danger_sounds[face_name]
 			player.play()
-		texture_normal = pressed_unfocused[danger_names[value]]
-		texture_focused = pressed_focused[danger_names[value]]
+		texture_normal = pressed_unfocused[face_name]
+		texture_focused = pressed_focused[face_name]
 	texture_hover = texture_focused
+	var old = accessibility_name
+	old = old.substr(old.find("."))
+	accessibility_name = face_name + old
 	get_node("../..").update_dangers_near(self)

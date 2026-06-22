@@ -36,7 +36,7 @@ func _ready() -> void:
 	for pair in hexes:
 		hexes[pair].pressed.connect(_on_hex_pressed.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
-		hexes[pair].accessibility_description = "Row " + str(pair[0]) + " column " + str(pair[1])
+		hexes[pair].accessibility_name = ". row " + str(pair[0]) + " column " + str(pair[1])
 	for die in dice:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
 	
