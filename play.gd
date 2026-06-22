@@ -168,6 +168,7 @@ func _on_die_button_pressed(selected):
 			dice[die].button_pressed = false
 
 func _on_undo_button_pressed() -> void:
+	speak("Undo")
 	var pair = undo_stack.pop_back()
 	var hex = pair[0]
 	var index = pair[1]
