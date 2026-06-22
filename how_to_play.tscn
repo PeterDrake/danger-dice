@@ -49,7 +49,7 @@ focus_next = NodePath("../GameInstructions")
 focus_previous = NodePath("../PageTitle")
 focus_mode = 3
 theme_override_font_sizes/font_size = 18
-text = "Keyboard controls: Navigate with arrow keys, tab / shift-tab, or your screenreader. Space presses buttons. Within the grid, Q, W, E, A, S, and D allow you to move in six directions and 1, 2, and 3 select among the rolled dice. Press backspace to undo a die placement. After you've place all three dice, press R to roll the next set of dice.
+text = "Keyboard controls: Navigate with arrow keys, tab/shift-tab, or your screenreader. Space presses buttons. Within the grid, Q, W, E, A, S, and D allow you to move in six directions and 1, 2, and 3 select among the rolled dice. Backspace undoes a die placement. After you place all three dice, press R to roll the next set of dice. If you win, lose, or want to start over, press M to quit to the main menu.
 
 Mouse controls: Click on a rolled die, then click on an empty hex to place it."
 autowrap_mode = 2
