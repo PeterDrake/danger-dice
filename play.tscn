@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://07216rpl44pm" path="res://hex.tscn" id="2_2jglr"]
 [ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="2_ca36m"]
 [ext_resource type="PackedScene" uid="uid://c4o46i87blyhc" path="res://die.tscn" id="4_2jglr"]
-[ext_resource type="Texture2D" uid="uid://d3l6gxmlmkjfh" path="res://PlaceholderAssets/die_disabled.png" id="4_y08r1"]
-[ext_resource type="Texture2D" uid="uid://krjiosi7bo5o" path="res://PlaceholderAssets/hex_normal.png" id="6_3ib3j"]
-[ext_resource type="Texture2D" uid="uid://gr7avmwksyxn" path="res://PlaceholderAssets/hex_focused.png" id="7_iu7w4"]
+[ext_resource type="Texture2D" uid="uid://ceubjfs7iphed" path="res://Assets/die_disabled.png" id="4_y08r1"]
+[ext_resource type="Texture2D" uid="uid://034xxyy68jdd" path="res://Assets/hex_normal.png" id="6_3ib3j"]
+[ext_resource type="Texture2D" uid="uid://bmy45wyptn3nb" path="res://Assets/hex_focused.png" id="7_iu7w4"]
 
 [node name="Play" type="Control" unique_id=535170605]
 layout_mode = 3
