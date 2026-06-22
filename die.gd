@@ -84,6 +84,7 @@ func roll():
 
 func _process(_delta: float) -> void:
 	if disabled:
+		texture_normal = texture_disabled
 		texture_focused = disabled_focused
 		accessibility_name = "Die already placed"
 	elif button_pressed:

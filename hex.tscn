@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://07216rpl44pm"]
 
 [ext_resource type="Texture2D" uid="uid://034xxyy68jdd" path="res://Assets/hex_normal.png" id="1_ygafg"]
-[ext_resource type="Texture2D" uid="uid://deudd5aflv0fc" path="res://PlaceholderAssets/hex_pressed.png" id="2_ygafg"]
 [ext_resource type="Texture2D" uid="uid://bmy45wyptn3nb" path="res://Assets/hex_focused.png" id="3_1dks6"]
 [ext_resource type="Script" uid="uid://b8ajkigwt3et3" path="res://hex.gd" id="4_ygafg"]
 
@@ -12,7 +11,6 @@ anchor_bottom = 0.19800001
 offset_right = 0.12799072
 offset_bottom = -0.3040161
 texture_normal = ExtResource("1_ygafg")
-texture_pressed = ExtResource("2_ygafg")
 texture_hover = ExtResource("3_1dks6")
 texture_focused = ExtResource("3_1dks6")
 ignore_texture_size = true

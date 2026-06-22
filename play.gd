@@ -11,6 +11,7 @@ var danger_names := {1:"Chainsaw", 2:"Clown", 3:"Lava", 4:"Lightning", 5:"Rattle
 var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
 var game_over: bool
+var sound_invalid_action = load("res://Audio/invalid_action.mp3")
 
 var roll_dice_sound = load("res://Audio/reroll_dice.mp3")
 const NO_DIE_HERE := 0
@@ -64,13 +65,16 @@ func _process(_delta: float) -> void:
 		if not game_over:
 			if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
 				_on_undo_button_pressed()
+			elif Input.is_action_just_pressed("undo") and $VBoxContainer2/UndoButton.disabled:
+				play_invalid_action_sound()
 			if Input.is_action_just_pressed("roll_dice") and not $VBoxContainer2/RollDiceButton.disabled:
 				_on_roll_dice_button_pressed()
+			elif Input.is_action_just_pressed("roll_dice") and $VBoxContainer2/RollDiceButton.disabled:
+				play_invalid_action_sound()
 			for d in [1, 2, 3]:
 				if Input.is_action_just_pressed("die" + str(d)):
 					var die = get_node("Die" + str(d))
 					_on_die_button_pressed(die)
-
 
 func _navigate(direction):
 	var destination = [current_hex[0] + OFFSETS[direction][0], current_hex[1] + OFFSETS[direction][1]]
@@ -79,6 +83,8 @@ func _navigate(direction):
 		current_hex = destination
 		hexes[current_hex].grab_focus.call_deferred()
 		hexes[current_hex].set_current(true)
+	else:
+		play_invalid_action_sound()
 
 func _on_hex_pressed(pair: Array) -> void:
 	if not game_over:
@@ -177,3 +183,7 @@ func _on_undo_button_pressed() -> void:
 func update_dangers():
 	for hex in hexes.values():
 		hex.set_value(hex.current_face)  # To update name on label
+
+func play_invalid_action_sound():
+	$AudioStreamPlayer.stream = sound_invalid_action
+	$AudioStreamPlayer.play()
