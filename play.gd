@@ -63,6 +63,8 @@ func _process(_delta: float) -> void:
 			for direction in OFFSETS:
 				if Input.is_action_just_pressed(direction):
 					_navigate(direction)
+		if Input.is_action_just_pressed("quit_to_main_menu"):
+			get_node(".."). _on_quit_to_menu_button_pressed($VBoxContainer/QuitToMenuButton)
 		if not game_over:
 			if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
 				_on_undo_button_pressed()
