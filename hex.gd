@@ -57,12 +57,12 @@ func set_current(value: bool):
 	_current = value
 
 func set_value(value: int):
-	var danger_names = get_node("../..").danger_names
 	current_face = value
 	if value == NO_DIE_HERE:
 		texture_normal = original_normal
 		texture_focused = original_focused
 	else:
+		var danger_names = get_node("../..").danger_names
 		if get_node("../..").visible:
 			var player = get_node("../../AudioStreamPlayer")
 			player.stream = get_node("../../../Options").danger_sounds[danger_names[value]]
@@ -70,3 +70,4 @@ func set_value(value: int):
 		texture_normal = pressed_unfocused[danger_names[value]]
 		texture_focused = pressed_focused[danger_names[value]]
 	texture_hover = texture_focused
+	get_node("../..").update_dangers_near(self)

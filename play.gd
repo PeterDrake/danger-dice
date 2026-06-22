@@ -17,8 +17,8 @@ var roll_dice_sound = load("res://Audio/reroll_dice.mp3")
 
 const NO_DIE_HERE := 0
 
-const OFFSETS = {'north':[-1, 0], 'northwest':[-1, -1], 'northeast':[0, 1],
-				 'south':[1,  0], 'southwest':[0,  -1], 'southeast':[1, 1]}
+const OFFSETS = {'north':[-1, 0], 'northeast':[0, 1], 'southeast':[1, 1],
+				'south':[1,  0], 'southwest':[0,  -1], 'northwest':[-1, -1]}
 
 func _ready() -> void:
 	hexes = {
@@ -197,3 +197,33 @@ func update_dangers():
 func play_invalid_action_sound():
 	$AudioStreamPlayer.stream = sound_invalid_action
 	$AudioStreamPlayer.play()
+
+func update_dangers_near(hex):
+	if hexes:
+		var pair
+		for p in hexes:
+			if hexes[p] == hex:
+				pair = p
+				break
+		for offset in OFFSETS.values():
+			var neighbor = pair.duplicate()
+			neighbor[0] += offset[0]
+			neighbor[1] += offset[1]
+			if neighbor in hexes:
+				update_dangers_at(neighbor)
+	return false
+
+func update_dangers_at(pair):
+	hexes[pair].accessibility_description = "Neighboring dangers:"
+	for direction in OFFSETS:
+		var offset = OFFSETS[direction]
+		var neighbor = pair.duplicate()
+		neighbor[0] += offset[0]
+		neighbor[1] += offset[1]
+		if neighbor in hexes:
+			hexes[pair].accessibility_description += " " + direction + " "
+			if hexes[neighbor].current_face == NO_DIE_HERE:
+				hexes[pair].accessibility_description += "empty"
+			else:
+				hexes[pair].accessibility_description += danger_names[hexes[neighbor].current_face]
+			hexes[pair].accessibility_description += "."
