@@ -11,9 +11,10 @@ var danger_names := {1:"Chainsaw", 2:"Clown", 3:"Lava", 4:"Lightning", 5:"Rattle
 var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
 var game_over: bool
-var sound_invalid_action = load("res://Audio/invalid_action.mp3")
 
+var sound_invalid_action = load("res://Audio/invalid_action.mp3")
 var roll_dice_sound = load("res://Audio/reroll_dice.mp3")
+
 const NO_DIE_HERE := 0
 
 const OFFSETS = {'north':[-1, 0], 'northwest':[-1, -1], 'northeast':[0, 1],
@@ -155,17 +156,24 @@ func _on_roll_dice_button_pressed() -> void:
 		die.roll()
 
 func _on_die_button_pressed(selected):
-	for die in dice:
-		if dice[die] == selected:
-			if score > 0:  # This method is also used to place the center die
-				if dice[die].disabled:
-					speak("The die in slot " + str(die) + " has already been placed")
-				else:
-					speak("You selected a " + danger_names[dice[die].current_face])
-			dice[die].button_pressed = true
-			current_die_index = die
-		else:
-			dice[die].button_pressed = false
+	$AudioStreamPlayer.stream = get_node("../Options").danger_sounds[selected.current_face_danger]
+	$AudioStreamPlayer.play()
+	if selected.disabled:
+		play_invalid_action_sound()
+	else:
+		for die in dice:
+			if dice[die] == selected:
+				if score > 0:  # This method is also used to place the center die
+					if dice[die].disabled:
+						pass
+						#speak("Slot " + str(die) + " die already placed")
+					else:
+						pass
+						#speak(danger_names[dice[die].current_face] + " selected")
+				dice[die].button_pressed = true
+				current_die_index = die
+			else:
+				dice[die].button_pressed = false
 
 func _on_undo_button_pressed() -> void:
 	speak("Undo")
