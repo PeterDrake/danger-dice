@@ -12,6 +12,7 @@ var voices := DisplayServer.tts_get_voices_for_language("en")
 var voice_id := voices[40]
 var game_over: bool
 
+var roll_dice_sound = load("res://Audio/reroll_dice.mp3")
 const NO_DIE_HERE := 0
 
 signal newly_activated()
@@ -71,10 +72,6 @@ func _process(_delta: float) -> void:
 			for d in [1, 2, 3]:
 				if Input.is_action_just_pressed("die" + str(d)):
 					var die = get_node("Die" + str(d))
-					if die.disabled:
-						speak("The die in slot " + str(d) + " has already been placed")
-					else:
-						speak("You selected a " + danger_names[die.current_face])
 					_on_die_button_pressed(die)
 
 
@@ -150,6 +147,8 @@ func _on_hex_newly_activated():
 	emit_signal("newly_activated")
 
 func _on_roll_dice_button_pressed() -> void:
+	$AudioStreamPlayer.stream = roll_dice_sound
+	$AudioStreamPlayer.play()
 	_clear_undo_stack()
 	$VBoxContainer2/RollDiceButton.disabled = true
 	for die in [$Die1, $Die2, $Die3]:
@@ -158,6 +157,11 @@ func _on_roll_dice_button_pressed() -> void:
 func _on_die_button_pressed(selected):
 	for die in dice:
 		if dice[die] == selected:
+			if score > 0:  # This method is also used to place the center die
+				if dice[die].disabled:
+					speak("The die in slot " + str(die) + " has already been placed")
+				else:
+					speak("You selected a " + danger_names[dice[die].current_face])
 			dice[die].button_pressed = true
 			current_die_index = die
 		else:

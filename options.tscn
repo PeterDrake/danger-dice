@@ -286,4 +286,7 @@ theme_override_font_sizes/font_size = 24
 text = "Return
 "
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1860316774]
+playback_type = 1
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainerLeft/DefaultDangerButton" to="." method="_on_default_danger_button_pressed"]

@@ -479,6 +479,9 @@ texture_normal = ExtResource("6_3ib3j")
 texture_hover = ExtResource("7_iu7w4")
 texture_focused = ExtResource("7_iu7w4")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1635856921]
+playback_type = 1
+
 [connection signal="pressed" from="VBoxContainer2/UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
 [connection signal="focus_entered" from="Grid" to="." method="_on_grid_focus_entered"]

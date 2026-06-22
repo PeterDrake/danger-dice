@@ -10,6 +10,8 @@ var dangers := []
 
 var _danger_count := 6
 
+var danger_sounds := {}
+
 func _ready() -> void:
 	_bus_index = AudioServer.get_bus_index("Master")
 	var slider = $HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider
@@ -38,8 +40,22 @@ func _ready() -> void:
 		$HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox8,
 		$HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9
 	]
+	danger_sounds = {
+		"Chainsaw":load("res://Audio/chainsaw.mp3"),
+		"Clown":load("res://Audio/clown.mp3"),
+		"Dentist":load("res://Audio/dentist.mp3"),
+		"Lava":load("res://Audio/lava.mp3"),
+		"Lightning":load("res://Audio/lightning.mp3"),
+		"Quicksand":load("res://Audio/quicksand.mp3"),
+		"Rattlesnake":load("res://Audio/rattlesnake.mp3"),
+		"Shark":load("res://Audio/shark.mp3"),
+		"Spider":load("res://Audio/spider.mp3"),
+		"Vampire":load("res://Audio/vampire.mp3"),
+		"Wasp":load("res://Audio/wasp.mp3"),
+		"Wolf":load("res://Audio/wolf.mp3")
+	}
 	for checkbox in dangers:
-		checkbox.toggled.connect(_on_danger_checkbox_toggled)
+		checkbox.toggled.connect(_on_danger_checkbox_toggled.bind(checkbox))
 
 func _on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(_bus_index, linear_to_db(value))
@@ -50,9 +66,11 @@ func _on_default_danger_button_pressed() -> void:
 		checkbox.button_pressed = checkbox in default_dangers
 	$HBoxContainer/VBoxContainerRight/ReturnButton.disabled = false
 
-func _on_danger_checkbox_toggled(state: bool):
+func _on_danger_checkbox_toggled(state: bool, checkbox):
 	if state:
 		_danger_count += 1
+		$AudioStreamPlayer.stream = danger_sounds[checkbox.text]
+		$AudioStreamPlayer.play()
 	else:
 		_danger_count -= 1
 	$HBoxContainer/VBoxContainerRight/ReturnButton.disabled = (_danger_count != 6)
