@@ -3,17 +3,15 @@
 extends Control
 
 var _bus_index: int
-
+var _music_bus_index: int
 var default_dangers := []
-
 var dangers := []
-
 var _danger_count := 6
-
 var danger_sounds := {}
 
 func _ready() -> void:
 	_bus_index = AudioServer.get_bus_index("Master")
+	_music_bus_index = AudioServer.get_bus_index("Music")
 	var slider = $HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider
 	slider.value_changed.connect(_on_value_changed)
 	#AudioServer.set_bus_volume_db(_bus_index, 12.0)
@@ -60,6 +58,9 @@ func _ready() -> void:
 func _on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(_bus_index, linear_to_db(value))
 	get_node("../Play").speak("Volume changed")
+
+func _on_music_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(_music_bus_index, linear_to_db(value))
 
 func _on_default_danger_button_pressed() -> void:
 	for checkbox in dangers:

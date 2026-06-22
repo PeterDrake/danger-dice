@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dj35lbpkmm4s4" path="res://accessibility.tscn" id="3_eudhu"]
 [ext_resource type="PackedScene" uid="uid://g22eivmy1umc" path="res://how_to_play.tscn" id="3_ytlbn"]
 [ext_resource type="PackedScene" uid="uid://by3yom2t6ybll" path="res://credits.tscn" id="4_ytlbn"]
+[ext_resource type="AudioStream" uid="uid://coasmfml6hums" path="res://Audio/danger_dice_music.wav" id="9_fsrdf"]
 
 [node name="DangerDice" type="Control" unique_id=1195856445]
 layout_mode = 3
@@ -44,3 +45,11 @@ layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1084039485]
 playback_type = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1598148840]
+stream = ExtResource("9_fsrdf")
+autoplay = true
+bus = &"Music"
+playback_type = 1
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

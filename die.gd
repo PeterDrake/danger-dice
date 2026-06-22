@@ -88,9 +88,11 @@ func _process(_delta: float) -> void:
 		texture_focused = disabled_focused
 		accessibility_name = "Die already placed"
 	elif button_pressed:
+		texture_normal = pressed_faces[current_face_danger]
 		texture_focused = pressed_focused_faces[current_face_danger]
 		accessibility_name = "Selected die showing " + str(current_face_danger)
 	else:
+		texture_normal = faces[current_face_danger]
 		texture_focused = focused_faces[current_face_danger]
 		accessibility_name = "Unselected die showing " + str(current_face_danger)
 	texture_hover = texture_focused

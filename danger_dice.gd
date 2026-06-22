@@ -130,3 +130,6 @@ func button_pressed_sound(button):
 	else:
 		$AudioStreamPlayer.stream = sound_invalid_action
 	$AudioStreamPlayer.play()
+
+func _on_music_finished() -> void:
+	$Music.play()
