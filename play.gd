@@ -15,8 +15,6 @@ var game_over: bool
 var roll_dice_sound = load("res://Audio/reroll_dice.mp3")
 const NO_DIE_HERE := 0
 
-signal newly_activated()
-
 const OFFSETS = {'north':[-1, 0], 'northwest':[-1, -1], 'northeast':[0, 1],
 				 'south':[1,  0], 'southwest':[0,  -1], 'southeast':[1, 1]}
 
@@ -36,7 +34,6 @@ func _ready() -> void:
 	for pair in hexes:
 		hexes[pair].pressed.connect(_on_hex_pressed.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
-		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
 		hexes[pair].accessibility_description = "Row " + str(pair[0]) + " column " + str(pair[1])
 	for die in dice:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
@@ -142,9 +139,6 @@ func _make_center_hex_current():
 		hexes[pair].set_current(false)
 	hexes[[3,3]].set_current(true)
 	current_hex = [3, 3]
-	
-func _on_hex_newly_activated():
-	emit_signal("newly_activated")
 
 func _on_roll_dice_button_pressed() -> void:
 	$AudioStreamPlayer.stream = roll_dice_sound

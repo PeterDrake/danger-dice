@@ -10,8 +10,6 @@ var pressed_unfocused := {}
 var pressed_focused := {}
 var current_face := NO_DIE_HERE
 
-signal newly_activated()
-
 func _ready() -> void:
 	pressed_focused = {
 		"Chainsaw":    load("res://Assets/hex_pressed_focused/hex_pressed_focused_chainsaw.png"),
@@ -51,7 +49,7 @@ func _ready() -> void:
 func set_activated(value: bool):
 	_activated = value
 	if value:
-		emit_signal("newly_activated")
+		pass
 	else:
 		set_value(NO_DIE_HERE)
 
