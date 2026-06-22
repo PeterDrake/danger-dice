@@ -256,18 +256,45 @@ focus_neighbor_bottom = NodePath("../VolumeSlider")
 focus_next = NodePath("../VolumeSlider")
 focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
 theme_override_font_sizes/font_size = 32
-text = "Volume"
+text = "Sound Effects Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=892049569]
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath("../VolumeLabel")
 focus_neighbor_top = NodePath("../VolumeLabel")
+focus_neighbor_right = NodePath("../MusicVolumeSlider")
+focus_neighbor_bottom = NodePath("../MusicVolumeSlider")
+focus_next = NodePath("../MusicVolumeSlider")
+focus_previous = NodePath("../VolumeLabel")
+accessibility_name = "Sounds Effects Volume"
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="MusicVolumeLabel" type="Label" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=1448644993]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
+focus_neighbor_top = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
+focus_neighbor_right = NodePath("../VolumeSlider")
+focus_neighbor_bottom = NodePath("../VolumeSlider")
+focus_next = NodePath("../VolumeSlider")
+focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=9553247]
+layout_mode = 2
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../VolumeSlider")
+focus_neighbor_top = NodePath("../VolumeSlider")
 focus_neighbor_right = NodePath("../../ReturnButton")
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 focus_next = NodePath("../../ReturnButton")
-focus_previous = NodePath("../VolumeLabel")
-accessibility_name = "Volume"
+focus_previous = NodePath("../VolumeSlider")
+accessibility_name = "Music Volume"
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -276,12 +303,12 @@ value = 1.0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-focus_neighbor_left = NodePath("../VBoxContainerVolume/VolumeSlider")
-focus_neighbor_top = NodePath("../VBoxContainerVolume/VolumeSlider")
+focus_neighbor_left = NodePath("../VBoxContainerVolume/MusicVolumeSlider")
+focus_neighbor_top = NodePath("../VBoxContainerVolume/MusicVolumeSlider")
 focus_neighbor_right = NodePath("../../VBoxContainerLeft/ChooseDangerLabel")
 focus_neighbor_bottom = NodePath("../../VBoxContainerLeft/ChooseDangerLabel")
 focus_next = NodePath("../../VBoxContainerLeft/ChooseDangerLabel")
-focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
+focus_previous = NodePath("../VBoxContainerVolume/MusicVolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
