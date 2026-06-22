@@ -417,6 +417,7 @@ focus_next = NodePath("../../VBoxContainer/HowToPlayButton")
 focus_previous = NodePath("../Hex5_4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1635856921]
+bus = &"Sfx/Tts"
 playback_type = 1
 
 [connection signal="pressed" from="VBoxContainer2/UndoButton" to="." method="_on_undo_button_pressed"]

@@ -8,14 +8,17 @@ var default_dangers := []
 var dangers := []
 var _danger_count := 6
 var danger_sounds := {}
+var pressed_sound := load("res://Audio/pressed.mp3")
 
 func _ready() -> void:
-	_bus_index = AudioServer.get_bus_index("Master")
-	_music_bus_index = AudioServer.get_bus_index("Music")
+	_bus_index = AudioServer.get_bus_index("Sfx/Tts")
 	var slider = $HBoxContainer/VBoxContainerRight/VBoxContainerVolume/VolumeSlider
 	slider.value_changed.connect(_on_value_changed)
-	#AudioServer.set_bus_volume_db(_bus_index, 12.0)
 	slider.value = db_to_linear(AudioServer.get_bus_volume_db(_bus_index))
+	_music_bus_index = AudioServer.get_bus_index("Music")
+	var slider2 = $HBoxContainer/VBoxContainerRight/VBoxContainerVolume/MusicVolumeSlider
+	slider2.value_changed.connect(_on_music_volume_slider_value_changed)
+	slider2.value = db_to_linear(AudioServer.get_bus_volume_db(_music_bus_index))
 	default_dangers = [
 		$HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft/CheckBox3,
 		$HBoxContainer/VBoxContainerLeft/HBoxContainer/VBoxContainerLeft/CheckBox5,
@@ -57,7 +60,8 @@ func _ready() -> void:
 
 func _on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(_bus_index, linear_to_db(value))
-	get_node("../Play").speak("Volume changed")
+	$AudioStreamPlayer.stream = pressed_sound
+	$AudioStreamPlayer.play()
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(_music_bus_index, linear_to_db(value))

@@ -22,7 +22,7 @@ func _ready() -> void:
 			"Spider":      load("res://Assets/die_normal/die_spider.png"),
 			"Vampire":     load("res://Assets/die_normal/die_vampire.png"),
 			"Wasp":        load("res://Assets/die_normal/die_wasp.png"),
-			"Wolf":        load("res://Assets/die_normal/die_wasp.png")
+			"Wolf":        load("res://Assets/die_normal/die_wolf.png")
 	}
 	pressed_faces = {
 			"Chainsaw":    load("res://Assets/die_selected/die_selected_chainsaw.png"),
@@ -47,10 +47,10 @@ func _ready() -> void:
 			"Quicksand":   load("res://Assets/die_focused/die_focused_quicksand.png"),
 			"Rattlesnake": load("res://Assets/die_focused/die_focused_rattlesnake.png"),
 			"Shark":       load("res://Assets/die_focused/die_focused_shark.png"),
-			"Spider":      load("res://Assets/die_focused/die_focused_shark.png"),
+			"Spider":      load("res://Assets/die_focused/die_focused_spider.png"),
 			"Vampire":     load("res://Assets/die_focused/die_focused_vampire.png"),
 			"Wasp":        load("res://Assets/die_focused/die_focused_wasp.png"),
-			"Wolf":        load("res://Assets/die_focused/die_focused_wasp.png")
+			"Wolf":        load("res://Assets/die_focused/die_focused_wolf.png")
 	}
 	pressed_focused_faces = {
 			"Chainsaw":    load("res://Assets/die_selected_focused/die_selected_focused_chainsaw.png"),
@@ -61,10 +61,10 @@ func _ready() -> void:
 			"Quicksand":   load("res://Assets/die_selected_focused/die_selected_focused_quicksand.png"),
 			"Rattlesnake": load("res://Assets/die_selected_focused/die_selected_focused_rattlesnake.png"),
 			"Shark":       load("res://Assets/die_selected_focused/die_selected_focused_shark.png"),
-			"Spider":      load("res://Assets/die_selected_focused/die_selected_focused_shark.png"),
+			"Spider":      load("res://Assets/die_selected_focused/die_selected_focused_spider.png"),
 			"Vampire":     load("res://Assets/die_selected_focused/die_selected_focused_vampire.png"),
 			"Wasp":        load("res://Assets/die_selected_focused/die_selected_focused_wasp.png"),
-			"Wolf":        load("res://Assets/die_selected_focused/die_selected_focused_wasp.png")
+			"Wolf":        load("res://Assets/die_selected_focused/die_selected_focused_wolf.png")
 	}
 	roll()
 	var image = texture_normal.get_image()
@@ -73,9 +73,12 @@ func _ready() -> void:
 	texture_click_mask = bitmap
 
 func roll():
-	var danger_names = get_node("..").danger_names
 	disabled = false
 	current_face = rng.randi_range(1, 6)
+	set_value(current_face)
+
+func set_value(current_face):
+	var danger_names = get_node("..").danger_names
 	current_face_danger = danger_names[current_face]
 	texture_normal = faces[current_face_danger]
 	texture_pressed = pressed_faces[current_face_danger]

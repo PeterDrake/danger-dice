@@ -44,6 +44,7 @@ visible = false
 layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1084039485]
+bus = &"Sfx/Tts"
 playback_type = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1598148840]

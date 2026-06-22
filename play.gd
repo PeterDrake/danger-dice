@@ -191,6 +191,8 @@ func _on_undo_button_pressed() -> void:
 		$VBoxContainer2/UndoButton.disabled = true
 
 func update_dangers():
+	for d in dice:
+		dice[d].set_value(dice[d].current_face)
 	for hex in hexes.values():
 		hex.set_value(hex.current_face)  # To update name on label
 
