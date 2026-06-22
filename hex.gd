@@ -64,9 +64,10 @@ func set_value(value: int):
 		texture_normal = original_normal
 		texture_focused = original_focused
 	else:
-		var player = get_node("../../AudioStreamPlayer")
-		player.stream = get_node("../../../Options").danger_sounds[danger_names[value]]
-		player.play()
+		if get_node("../..").visible:
+			var player = get_node("../../AudioStreamPlayer")
+			player.stream = get_node("../../../Options").danger_sounds[danger_names[value]]
+			player.play()
 		$Label.text = danger_names[value]
 		texture_normal = pressed_unfocused[danger_names[value]]
 		texture_focused = pressed_focused[danger_names[value]]
