@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://g22eivmy1umc"]
 
+[ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="1_1ad62"]
+
 [node name="HowToPlay" type="Control" unique_id=2082202645]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="." unique_id=964895564]
+position = Vector2(576, 324)
+texture = ExtResource("1_1ad62")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1825818289]
 layout_mode = 1
@@ -43,10 +49,9 @@ focus_next = NodePath("../GameInstructions")
 focus_previous = NodePath("../PageTitle")
 focus_mode = 3
 theme_override_font_sizes/font_size = 18
-text = "Keyboard controls: Navigate with arrow keys, tab / shift-tab, or your screenreader. Space presses buttons. Within the grid, Q, W, E, A, S, and D allow you to move in six directions and 1, 2, and 3 select among the rolled dice. Press backspace to undo a die placement. After you've place all three dice, press R to roll the next set of dice.
+text = "Keyboard controls: Navigate with arrow keys, tab/shift-tab, or your screenreader. Space presses buttons. Within the grid, Q, W, E, A, S, and D allow you to move in six directions and 1, 2, and 3 select among the rolled dice. Backspace undoes a die placement. After you place all three dice, press R to roll the next set of dice. If you win, lose, or want to start over, press M to quit to the main menu.
 
-Mouse controls: Click on a rolled die, then click on an empty hex to place it.
-"
+Mouse controls: Click on a rolled die, then click on an empty hex to place it."
 autowrap_mode = 2
 
 [node name="GameInstructions" type="Label" parent="VBoxContainer" unique_id=1663747750]
@@ -60,6 +65,7 @@ focus_neighbor_bottom = NodePath("../ReturnButton")
 focus_next = NodePath("../ReturnButton")
 focus_previous = NodePath("../ControlInstructions")
 focus_mode = 3
+accessibility_description = "The grid is a single hex, surrounded by a ring of 6 hexes, surrounded by another ring of 12 hexes. There are therefore 19 hexes in all, arranged in a large hexagon with corners at the top and bottom and flat sides on the left and right. Column 1 has 3 hexes, column 2 has 4, 3 has 5, 4 has 4, and 5 has 3. It's the same for the rows, but because it's a hex grid, the rows are diagonal. Row 1 is the northwest side of the big hex. Row 5 is the southwest side."
 theme_override_font_sizes/font_size = 18
 text = "Danger Dice is a dice placement game. You will be placing dice into a grid of hexagons. Each die face represents a different danger, like a shark or quicksand. You can choose what the dangers are on the Options page.
 

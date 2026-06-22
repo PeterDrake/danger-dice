@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://buk3j8sn48smg"]
 
 [ext_resource type="Script" uid="uid://bhue8bad3msav" path="res://options.gd" id="1_se8ut"]
+[ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="2_se8ut"]
 
 [node name="Options" type="Control" unique_id=314918461]
 layout_mode = 3
@@ -10,6 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_se8ut")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=411452746]
+position = Vector2(576, 324)
+texture = ExtResource("2_se8ut")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1499690826]
 layout_mode = 1
@@ -251,18 +256,45 @@ focus_neighbor_bottom = NodePath("../VolumeSlider")
 focus_next = NodePath("../VolumeSlider")
 focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
 theme_override_font_sizes/font_size = 32
-text = "Volume"
+text = "Sound Effects Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=892049569]
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath("../VolumeLabel")
 focus_neighbor_top = NodePath("../VolumeLabel")
+focus_neighbor_right = NodePath("../MusicVolumeSlider")
+focus_neighbor_bottom = NodePath("../MusicVolumeSlider")
+focus_next = NodePath("../MusicVolumeSlider")
+focus_previous = NodePath("../VolumeLabel")
+accessibility_name = "Sounds Effects Volume"
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="MusicVolumeLabel" type="Label" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=1448644993]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
+focus_neighbor_top = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
+focus_neighbor_right = NodePath("../VolumeSlider")
+focus_neighbor_bottom = NodePath("../VolumeSlider")
+focus_next = NodePath("../VolumeSlider")
+focus_previous = NodePath("../../../VBoxContainerLeft/HBoxContainer/VBoxContainerRight/CheckBox9")
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="HBoxContainer/VBoxContainerRight/VBoxContainerVolume" unique_id=9553247]
+layout_mode = 2
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../VolumeSlider")
+focus_neighbor_top = NodePath("../VolumeSlider")
 focus_neighbor_right = NodePath("../../ReturnButton")
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 focus_next = NodePath("../../ReturnButton")
-focus_previous = NodePath("../VolumeLabel")
-accessibility_name = "Volume"
+focus_previous = NodePath("../VolumeSlider")
+accessibility_name = "Music Volume"
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -271,14 +303,18 @@ value = 1.0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-focus_neighbor_left = NodePath("../VBoxContainerVolume/VolumeSlider")
-focus_neighbor_top = NodePath("../VBoxContainerVolume/VolumeSlider")
+focus_neighbor_left = NodePath("../VBoxContainerVolume/MusicVolumeSlider")
+focus_neighbor_top = NodePath("../VBoxContainerVolume/MusicVolumeSlider")
 focus_neighbor_right = NodePath("../../VBoxContainerLeft/ChooseDangerLabel")
 focus_neighbor_bottom = NodePath("../../VBoxContainerLeft/ChooseDangerLabel")
 focus_next = NodePath("../../VBoxContainerLeft/ChooseDangerLabel")
-focus_previous = NodePath("../VBoxContainerVolume/VolumeSlider")
+focus_previous = NodePath("../VBoxContainerVolume/MusicVolumeSlider")
 theme_override_font_sizes/font_size = 24
 text = "Return
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1860316774]
+bus = &"Sfx/Tts"
+playback_type = 1
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainerLeft/DefaultDangerButton" to="." method="_on_default_danger_button_pressed"]

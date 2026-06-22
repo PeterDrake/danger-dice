@@ -9,15 +9,16 @@ var undo_stack := []
 var score: int
 var danger_names := {1:"Chainsaw", 2:"Clown", 3:"Lava", 4:"Lightning", 5:"Rattlesnake", 6:"Shark"}
 var voices := DisplayServer.tts_get_voices_for_language("en")
-var voice_id := voices[40]
+var voice_id := voices[0]
 var game_over: bool
+
+var sound_invalid_action = load("res://Audio/invalid_action.mp3")
+var roll_dice_sound = load("res://Audio/reroll_dice.mp3")
 
 const NO_DIE_HERE := 0
 
-signal newly_activated()
-
-const OFFSETS = {'north':[-1, 0], 'northwest':[-1, -1], 'northeast':[0, 1],
-				 'south':[1,  0], 'southwest':[0,  -1], 'southeast':[1, 1]}
+const OFFSETS = {'north':[-1, 0], 'northeast':[0, 1], 'southeast':[1, 1],
+				'south':[1,  0], 'southwest':[0,  -1], 'northwest':[-1, -1]}
 
 func _ready() -> void:
 	hexes = {
@@ -35,8 +36,7 @@ func _ready() -> void:
 	for pair in hexes:
 		hexes[pair].pressed.connect(_on_hex_pressed.bind(pair))
 		hexes[pair].focus_entered.connect(_on_hex_focus_entered)
-		hexes[pair].newly_activated.connect(_on_hex_newly_activated)
-		hexes[pair].accessibility_description = "Row " + str(pair[0]) + " column " + str(pair[1])
+		hexes[pair].accessibility_name = ". row " + str(pair[0]) + " column " + str(pair[1])
 	for die in dice:
 		dice[die].pressed.connect(_on_die_button_pressed.bind(dice[die]))
 	
@@ -49,13 +49,13 @@ func reset_game():
 	hexes[[3, 3]].set_value(NO_DIE_HERE)
 	for die in dice.values():
 		die.disabled = false
+	score = 0
 	_on_die_button_pressed($Die1)
 	_on_hex_pressed([3, 3])
 	_on_roll_dice_button_pressed()
 	_clear_undo_stack()
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
-	score = 1
 
 func _process(_delta: float) -> void:
 	if visible:
@@ -63,20 +63,21 @@ func _process(_delta: float) -> void:
 			for direction in OFFSETS:
 				if Input.is_action_just_pressed(direction):
 					_navigate(direction)
+		if Input.is_action_just_pressed("quit_to_main_menu"):
+			get_node(".."). _on_quit_to_menu_button_pressed($VBoxContainer/QuitToMenuButton)
 		if not game_over:
 			if Input.is_action_just_pressed("undo") and not $VBoxContainer2/UndoButton.disabled:
 				_on_undo_button_pressed()
+			elif Input.is_action_just_pressed("undo") and $VBoxContainer2/UndoButton.disabled:
+				play_invalid_action_sound()
 			if Input.is_action_just_pressed("roll_dice") and not $VBoxContainer2/RollDiceButton.disabled:
 				_on_roll_dice_button_pressed()
+			elif Input.is_action_just_pressed("roll_dice") and $VBoxContainer2/RollDiceButton.disabled:
+				play_invalid_action_sound()
 			for d in [1, 2, 3]:
 				if Input.is_action_just_pressed("die" + str(d)):
 					var die = get_node("Die" + str(d))
-					if die.disabled:
-						speak("The die in slot " + str(d) + " has already been placed")
-					else:
-						speak("You selected a " + danger_names[die.current_face])
 					_on_die_button_pressed(die)
-
 
 func _navigate(direction):
 	var destination = [current_hex[0] + OFFSETS[direction][0], current_hex[1] + OFFSETS[direction][1]]
@@ -85,6 +86,8 @@ func _navigate(direction):
 		current_hex = destination
 		hexes[current_hex].grab_focus.call_deferred()
 		hexes[current_hex].set_current(true)
+	else:
+		play_invalid_action_sound()
 
 func _on_hex_pressed(pair: Array) -> void:
 	if not game_over:
@@ -145,24 +148,37 @@ func _make_center_hex_current():
 		hexes[pair].set_current(false)
 	hexes[[3,3]].set_current(true)
 	current_hex = [3, 3]
-	
-func _on_hex_newly_activated():
-	emit_signal("newly_activated")
 
 func _on_roll_dice_button_pressed() -> void:
+	$AudioStreamPlayer.stream = roll_dice_sound
+	$AudioStreamPlayer.play()
 	_clear_undo_stack()
+	$VBoxContainer2/RollDiceButton.disabled = true
 	for die in [$Die1, $Die2, $Die3]:
 		die.roll()
 
 func _on_die_button_pressed(selected):
-	for die in dice:
-		if dice[die] == selected:
-			dice[die].button_pressed = true
-			current_die_index = die
-		else:
-			dice[die].button_pressed = false
+	$AudioStreamPlayer.stream = get_node("../Options").danger_sounds[selected.current_face_danger]
+	$AudioStreamPlayer.play()
+	if selected.disabled:
+		play_invalid_action_sound()
+	else:
+		for die in dice:
+			if dice[die] == selected:
+				if score > 0:  # This method is also used to place the center die
+					if dice[die].disabled:
+						pass
+						#speak("Slot " + str(die) + " die already placed")
+					else:
+						pass
+						#speak(danger_names[dice[die].current_face] + " selected")
+				dice[die].button_pressed = true
+				current_die_index = die
+			else:
+				dice[die].button_pressed = false
 
 func _on_undo_button_pressed() -> void:
+	speak("Undo")
 	var pair = undo_stack.pop_back()
 	var hex = pair[0]
 	var index = pair[1]
@@ -175,5 +191,41 @@ func _on_undo_button_pressed() -> void:
 		$VBoxContainer2/UndoButton.disabled = true
 
 func update_dangers():
+	for d in dice:
+		dice[d].set_value(dice[d].current_face)
 	for hex in hexes.values():
 		hex.set_value(hex.current_face)  # To update name on label
+
+func play_invalid_action_sound():
+	$AudioStreamPlayer.stream = sound_invalid_action
+	$AudioStreamPlayer.play()
+
+func update_dangers_near(hex):
+	if hexes:
+		var pair
+		for p in hexes:
+			if hexes[p] == hex:
+				pair = p
+				break
+		for offset in OFFSETS.values():
+			var neighbor = pair.duplicate()
+			neighbor[0] += offset[0]
+			neighbor[1] += offset[1]
+			if neighbor in hexes:
+				update_dangers_at(neighbor)
+	return false
+
+func update_dangers_at(pair):
+	hexes[pair].accessibility_description = "Neighboring dangers:"
+	for direction in OFFSETS:
+		var offset = OFFSETS[direction]
+		var neighbor = pair.duplicate()
+		neighbor[0] += offset[0]
+		neighbor[1] += offset[1]
+		if neighbor in hexes:
+			hexes[pair].accessibility_description += " " + direction + " "
+			if hexes[neighbor].current_face == NO_DIE_HERE:
+				hexes[pair].accessibility_description += "empty"
+			else:
+				hexes[pair].accessibility_description += danger_names[hexes[neighbor].current_face]
+			hexes[pair].accessibility_description += "."

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://by3yom2t6ybll"]
 
+[ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="1_nm7lk"]
+
 [node name="Credits" type="Control" unique_id=98161517]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1047713493]
+position = Vector2(576, 324)
+texture = ExtResource("1_nm7lk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1781448084]
 layout_mode = 1
@@ -47,6 +53,7 @@ text = "Game Design: Peter Drake and Saph Leeper
 Programming: Peter Drake and Saph Leeper
 Art: Saph Leeper
 Screenreader Testing: Chad Bouton
+Additional Testing: Adriana Jergušová
 
 Thanks to the PIGSquad, Games for Blind Gamers, and Godot communities.
 
