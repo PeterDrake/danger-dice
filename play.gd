@@ -151,6 +151,7 @@ func _on_hex_newly_activated():
 
 func _on_roll_dice_button_pressed() -> void:
 	_clear_undo_stack()
+	$VBoxContainer2/RollDiceButton.disabled = true
 	for die in [$Die1, $Die2, $Die3]:
 		die.roll()
 

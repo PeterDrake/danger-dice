@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://07216rpl44pm" path="res://hex.tscn" id="2_2jglr"]
 [ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="2_ca36m"]
 [ext_resource type="PackedScene" uid="uid://c4o46i87blyhc" path="res://die.tscn" id="4_2jglr"]
+[ext_resource type="Texture2D" uid="uid://d3l6gxmlmkjfh" path="res://PlaceholderAssets/die_disabled.png" id="4_y08r1"]
+[ext_resource type="Texture2D" uid="uid://krjiosi7bo5o" path="res://PlaceholderAssets/hex_normal.png" id="6_3ib3j"]
+[ext_resource type="Texture2D" uid="uid://gr7avmwksyxn" path="res://PlaceholderAssets/hex_focused.png" id="7_iu7w4"]
 
 [node name="Play" type="Control" unique_id=535170605]
 layout_mode = 3
@@ -116,6 +119,7 @@ focus_neighbor_right = NodePath("../Die2")
 focus_neighbor_bottom = NodePath("../Die2")
 focus_next = NodePath("../Die2")
 focus_previous = NodePath("../VBoxContainer2/RollDiceButton")
+texture_disabled = ExtResource("4_y08r1")
 
 [node name="Die2" parent="." unique_id=1901438862 instance=ExtResource("4_2jglr")]
 layout_mode = 1
@@ -133,6 +137,7 @@ focus_neighbor_right = NodePath("../Die3")
 focus_neighbor_bottom = NodePath("../Die3")
 focus_next = NodePath("../Die3")
 focus_previous = NodePath("../Die1")
+texture_disabled = ExtResource("4_y08r1")
 
 [node name="Die3" parent="." unique_id=499569901 instance=ExtResource("4_2jglr")]
 layout_mode = 1
@@ -150,6 +155,7 @@ focus_neighbor_right = NodePath("../Grid/Hex1_1")
 focus_neighbor_bottom = NodePath("../Grid/Hex1_1")
 focus_next = NodePath("../Grid/Hex1_1")
 focus_previous = NodePath("../Die2")
+texture_disabled = ExtResource("4_y08r1")
 
 [node name="Grid" type="Control" parent="." unique_id=927965869]
 layout_mode = 1
@@ -181,6 +187,9 @@ focus_neighbor_right = NodePath("../Hex1_2")
 focus_neighbor_bottom = NodePath("../Hex1_2")
 focus_next = NodePath("../Hex1_2")
 focus_previous = NodePath("../../Die3")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex1_2" parent="Grid" unique_id=543554191 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -194,6 +203,9 @@ focus_neighbor_right = NodePath("../Hex1_3")
 focus_neighbor_bottom = NodePath("../Hex1_3")
 focus_next = NodePath("../Hex1_3")
 focus_previous = NodePath("../Hex1_1")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex1_3" parent="Grid" unique_id=1763270475 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -207,6 +219,9 @@ focus_neighbor_right = NodePath("../Hex2_1")
 focus_neighbor_bottom = NodePath("../Hex2_1")
 focus_next = NodePath("../Hex2_1")
 focus_previous = NodePath("../Hex1_2")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex2_1" parent="Grid" unique_id=543500641 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -220,6 +235,9 @@ focus_neighbor_right = NodePath("../Hex2_2")
 focus_neighbor_bottom = NodePath("../Hex2_2")
 focus_next = NodePath("../Hex2_2")
 focus_previous = NodePath("../Hex1_3")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex2_2" parent="Grid" unique_id=807094601 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -233,6 +251,9 @@ focus_neighbor_right = NodePath("../Hex2_3")
 focus_neighbor_bottom = NodePath("../Hex2_3")
 focus_next = NodePath("../Hex2_3")
 focus_previous = NodePath("../Hex2_1")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex2_3" parent="Grid" unique_id=1295531071 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -246,6 +267,9 @@ focus_neighbor_right = NodePath("../Hex2_4")
 focus_neighbor_bottom = NodePath("../Hex2_4")
 focus_next = NodePath("../Hex2_4")
 focus_previous = NodePath("../Hex2_2")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex2_4" parent="Grid" unique_id=2144253753 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -259,6 +283,9 @@ focus_neighbor_right = NodePath("../Hex3_1")
 focus_neighbor_bottom = NodePath("../Hex3_1")
 focus_next = NodePath("../Hex3_1")
 focus_previous = NodePath("../Hex2_3")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex3_1" parent="Grid" unique_id=1344095346 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -272,6 +299,9 @@ focus_neighbor_right = NodePath("../Hex3_2")
 focus_neighbor_bottom = NodePath("../Hex3_2")
 focus_next = NodePath("../Hex3_2")
 focus_previous = NodePath("../Hex2_4")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex3_2" parent="Grid" unique_id=1650015442 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -285,6 +315,9 @@ focus_neighbor_right = NodePath("../Hex3_3")
 focus_neighbor_bottom = NodePath("../Hex3_3")
 focus_next = NodePath("../Hex3_3")
 focus_previous = NodePath("../Hex3_1")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex3_3" parent="Grid" unique_id=1785247149 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -298,6 +331,9 @@ focus_neighbor_right = NodePath("../Hex3_4")
 focus_neighbor_bottom = NodePath("../Hex3_4")
 focus_next = NodePath("../Hex3_4")
 focus_previous = NodePath("../Hex3_2")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex3_4" parent="Grid" unique_id=1193595983 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -311,6 +347,9 @@ focus_neighbor_right = NodePath("../Hex3_5")
 focus_neighbor_bottom = NodePath("../Hex3_5")
 focus_next = NodePath("../Hex3_5")
 focus_previous = NodePath("../Hex3_3")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex3_5" parent="Grid" unique_id=1591108347 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -324,6 +363,9 @@ focus_neighbor_right = NodePath("../Hex4_2")
 focus_neighbor_bottom = NodePath("../Hex4_2")
 focus_next = NodePath("../Hex4_2")
 focus_previous = NodePath("../Hex3_4")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex4_2" parent="Grid" unique_id=778507788 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -337,6 +379,9 @@ focus_neighbor_right = NodePath("../Hex4_3")
 focus_neighbor_bottom = NodePath("../Hex4_3")
 focus_next = NodePath("../Hex4_3")
 focus_previous = NodePath("../Hex3_5")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex4_3" parent="Grid" unique_id=766359186 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -350,6 +395,9 @@ focus_neighbor_right = NodePath("../Hex4_4")
 focus_neighbor_bottom = NodePath("../Hex4_4")
 focus_next = NodePath("../Hex4_4")
 focus_previous = NodePath("../Hex4_2")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex4_4" parent="Grid" unique_id=1481068315 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -363,6 +411,9 @@ focus_neighbor_right = NodePath("../Hex4_5")
 focus_neighbor_bottom = NodePath("../Hex4_5")
 focus_next = NodePath("../Hex4_5")
 focus_previous = NodePath("../Hex4_3")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex4_5" parent="Grid" unique_id=1564933230 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -376,6 +427,9 @@ focus_neighbor_right = NodePath("../Hex5_3")
 focus_neighbor_bottom = NodePath("../Hex5_3")
 focus_next = NodePath("../Hex5_3")
 focus_previous = NodePath("../Hex4_4")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex5_3" parent="Grid" unique_id=1376232751 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -389,6 +443,9 @@ focus_neighbor_right = NodePath("../Hex5_4")
 focus_neighbor_bottom = NodePath("../Hex5_4")
 focus_next = NodePath("../Hex5_4")
 focus_previous = NodePath("../Hex4_5")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex5_4" parent="Grid" unique_id=1623376207 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -402,6 +459,9 @@ focus_neighbor_right = NodePath("../Hex5_5")
 focus_neighbor_bottom = NodePath("../Hex5_5")
 focus_next = NodePath("../Hex5_5")
 focus_previous = NodePath("../Hex5_3")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [node name="Hex5_5" parent="Grid" unique_id=406615025 instance=ExtResource("2_2jglr")]
 layout_mode = 1
@@ -415,6 +475,9 @@ focus_neighbor_right = NodePath("../../VBoxContainer/HowToPlayButton")
 focus_neighbor_bottom = NodePath("../../VBoxContainer/HowToPlayButton")
 focus_next = NodePath("../../VBoxContainer/HowToPlayButton")
 focus_previous = NodePath("../Hex5_4")
+texture_normal = ExtResource("6_3ib3j")
+texture_hover = ExtResource("7_iu7w4")
+texture_focused = ExtResource("7_iu7w4")
 
 [connection signal="pressed" from="VBoxContainer2/UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
