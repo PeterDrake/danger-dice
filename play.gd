@@ -42,6 +42,7 @@ func _ready() -> void:
 	
 func reset_game():
 	game_over = false
+	$ResultsLabel.visible = false
 	for pair in hexes:
 		hexes[pair].set_activated(false)
 	hexes[[3,3]].set_current(true)
@@ -106,7 +107,7 @@ func _on_hex_pressed(pair: Array) -> void:
 				score += 1
 				if score == 19:
 					speak("Victory! You placed all 19 dice. Congratulations. To play again, quit to the main menu.")
-					end_game()
+					end_game(NO_DIE_HERE)
 
 func has_lost(pair) -> bool:
 	for offset in OFFSETS.values():
@@ -117,12 +118,17 @@ func has_lost(pair) -> bool:
 			var face = dice[current_die_index].current_face
 			if hexes[neighbor].current_face == face:
 				speak("You were killed by " + danger_names[face] + ". Your score is " + str(score) + ". To play again, quit to the main menu.")
-				end_game()
+				end_game(face)
 				return true
 	return false
 
-func end_game():
+func end_game(face):
 	game_over = true
+	if face == NO_DIE_HERE:
+		$ResultsLabel.text = "Victory!\nYou placed all 19 dice.\nTo play again, quit to the main menu."
+	else:
+		$ResultsLabel.text = "You were killed by " + danger_names[face] + ".\nYour score is " + str(score) + ".\nTo play again, quit to the main menu."
+	$ResultsLabel.visible = true
 	$VBoxContainer2/UndoButton.disabled = true
 	$VBoxContainer2/RollDiceButton.disabled = true
 	for die in dice.values():

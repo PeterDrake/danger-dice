@@ -5,6 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://d35g3htgytq01" path="res://Assets/background.png" id="2_ca36m"]
 [ext_resource type="PackedScene" uid="uid://c4o46i87blyhc" path="res://die.tscn" id="4_2jglr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx5pe"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.827451)
+border_color = Color(0.80784315, 0.7607843, 0.7372549, 1)
+
 [node name="Play" type="Control" unique_id=535170605]
 layout_mode = 3
 anchors_preset = 15
@@ -419,6 +427,27 @@ focus_previous = NodePath("../Hex5_4")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1635856921]
 bus = &"Sfx/Tts"
 playback_type = 1
+
+[node name="ResultsLabel" type="Label" parent="." unique_id=1851050518]
+visible = false
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4236111
+anchor_right = 1.0002778
+anchor_bottom = 0.9995062
+offset_right = -0.3199463
+offset_bottom = 0.32000732
+theme_override_colors/font_color = Color(0.9607843, 0.95686275, 0.92156863, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_xx5pe")
+text = "Victory!
+You placed all 19 dice.
+To play again, quit to
+the main menu."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="VBoxContainer2/UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
