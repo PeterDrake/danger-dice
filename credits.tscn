@@ -48,9 +48,10 @@ focus_neighbor_bottom = NodePath("../ReturnButton")
 focus_next = NodePath("../ReturnButton")
 focus_previous = NodePath("../PageTitle")
 focus_mode = 3
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Game Design: Peter Drake and Saph Leeper
 Programming: Peter Drake and Saph Leeper
+Music & Sound Design: Saph Leeper
 Art: Saph Leeper
 Screenreader Testing: Chad Bouton
 Additional Testing: Adriana Jergušová
